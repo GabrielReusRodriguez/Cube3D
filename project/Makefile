@@ -6,7 +6,7 @@
 #    By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/01 19:39:15 by gabriel           #+#    #+#              #
-#    Updated: 2024/08/18 23:00:08 by gabriel          ###   ########.fr        #
+#    Updated: 2024/08/19 22:47:44 by gabriel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,7 +42,7 @@ GNL_DIR			=	./gnl
 CC				=	cc
 CFLAGS			=	-Wall -Werror -Wextra
 ifdef	CSANITIZE
-	SANITIZE_FLAGS	= -g -fsanitize=address -fsanitize=leak
+	SANITIZE_FLAGS	= -g3 -fsanitize=address -fsanitize=leak
 endif
 DEBUG_FLAG		=	-D DEBUG_FLAG=0
 DEP_FLAGS		=	-MMD -MP
@@ -60,21 +60,29 @@ NAME	=	cube3d
 # Files
 ################################################################################
 
-SRC				=	main		\
-					engine		\
-					engine2		\
-					radiants	\
-					screen		\
+SRC				=	main					\
+					engine					\
+					engine2					\
+					engine_render			\
+					error					\
+					handler_key_events		\
+					handler_destroy_event	\
+					map						\
+					radiants				\
+					screen					\
 					vector
 
-HEADERS			=	cub3d.h		\
-					engine.h	\
-					player.h	\
-					point.h		\
-					screen.h	\
-					texture.h	\
-					tile.h		\
-					types.h		\
+HEADERS			=	cub3d.h			\
+					engine.h		\
+					error.h			\
+					events.h		\
+					map.h			\
+					player.h		\
+					point.h			\
+					screen.h		\
+					texture.h		\
+					tile.h			\
+					types.h			\
 					vector.h
 
 SRCS			=	$(addprefix ${SRC_DIR}/, $(addsuffix .c, ${SRC}))

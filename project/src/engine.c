@@ -6,23 +6,30 @@
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 19:33:19 by gabriel           #+#    #+#             */
-/*   Updated: 2024/08/18 21:19:34 by gabriel          ###   ########.fr       */
+/*   Updated: 2024/08/19 22:40:14 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "engine.h"
+#include <stdio.h>
 
-bool	engine_init(t_engine *engine)
+#include "engine.h"
+#include "events.h"
+
+#include <X11/X.h>
+
+bool	engine_init(t_engine *engine, t_player *player, t_map *map)
 {
 	engine->mlx = NULL;
 	engine->mlx_win = NULL;
 	engine->mlx = mlx_init();
 	if (engine->mlx == NULL)
 		return (false);
+	engine->player = player;
+	engine->map = map;
 	return (true);
 }
 
-bool	engine_new_window(t_engine *engine)
+bool	engine_start(t_engine *engine)
 {
 	if (engine->mlx == NULL)
 	{
@@ -37,19 +44,23 @@ bool	engine_new_window(t_engine *engine)
 	{
 		return (false);
 	}
+	mlx_key_hook(engine->mlx_win, on_keydown, engine);
+	mlx_loop_hook(engine->mlx, engine_render, engine);
+	mlx_hook(engine->mlx_win, ON_DESTROY, NoEventMask, on_destroy, engine);
 	return (true);
 }
 
+//	mlx_destroy_display(engine->mlx); => da segmentation fault si lo llamo.
 void	engine_destroy(t_engine *engine)
 {
 	engine_clear_window(engine);
-	screen_destroy(&engine->screen);
 	mlx_destroy_window(engine->mlx, engine->mlx_win);
+	screen_destroy(&engine->screen);
 }
 
 bool	engine_clear_window(t_engine *engine)
 {
-	(void)engine;
+	mlx_clear_window(engine->mlx, engine->mlx_win);
 	return (true);
 }
 
