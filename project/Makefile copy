@@ -6,7 +6,7 @@
 #    By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/01 19:39:15 by gabriel           #+#    #+#              #
-#    Updated: 2024/08/20 21:15:01 by gabriel          ###   ########.fr        #
+#    Updated: 2024/08/19 22:47:44 by gabriel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -87,6 +87,7 @@ HEADERS			=	cub3d.h			\
 
 SRCS			=	$(addprefix ${SRC_DIR}/, $(addsuffix .c, ${SRC}))
 OBJS			=	$(addprefix ${BUILD_DIR}/, $(addsuffix .o, ${SRC}))
+#HDRS			=	$(addprefix ${INC_DIR}/, $(addsuffix .h, ${HEADERS}))
 HDRS			=	$(addprefix ${INC_DIR}/, ${HEADERS})
 DEPS			=	$(addprefix ${BUILD_DIR}/, $(addsuffix .d, ${SRC}))
 
@@ -94,39 +95,43 @@ DEPS			=	$(addprefix ${BUILD_DIR}/, $(addsuffix .d, ${SRC}))
 # Rules 
 ################################################################################
 
-all				:		compile
+all				:		${NAME}
 
-${NAME}			:	${OBJS} ${LIBFT_DIR}/libft.a ${GNL_DIR}/libgnl.a ${MINILIBX_DIR}/libmlx_Linux.a Makefile
+#${NAME}			:		libft gnl ${BUILD_FOLDER} ${OBJS}
+${NAME}			:	libft gnl minilibx ${OBJS} Makefile
 	@echo "${CYAN}Linking all together${RST}"
+#	${CC} ${CFLAGS} ${SANITIZE_FLAGS} ${LIBS_FOLDERS} -L/usr/lib -L/usr/local/lib -o ${NAME} -lXext -lX11 -lz ${OBJS} ${LIBS} 
 	${CC} ${CFLAGS} ${SANITIZE_FLAGS} -o ${NAME} ${OBJS} -L/usr/lib -L/usr/local/lib ${LIBS_FOLDERS} ${LIBS} -lXext -lX11 -lz  
 	@echo "$(GREEN)Binary $(NAME) compiled! $(RST)"
 
-compile:
+
+libft			:
 	@echo "${CYAN}Making libft...${RST}"
 	@make --no-print-directory -C ${LIBFT_DIR}
+
+gnl				:
 	@echo "${CYAN}Making get_next_line...${RST}"
 	@make --no-print-directory -C ${GNL_DIR}
+
+minilibx		:
 	@echo "${CYAN}Making minilibx...${RST}"
 	@make --no-print-directory -C ${MINILIBX_DIR}
-	@echo "${CYAN}Making ${NAME}...${RST}"
-	@make --no-print-directory ${NAME}
 
 ${BUILD_DIR}/%.o	:	${SRC_DIR}/%.c Makefile
 	@echo "\t${YELLOW}Compiling ${NAME} ->${RST} $<"
 	@mkdir -p ${BUILD_DIR}
+#	@${CC} ${CFLAGS} ${SANITIZE_FLAGS} -I${INC_DIR} -I${MINILIBX_DIR} -I${LIBFT_DIR}/include -I${GNL_DIR}/include ${DEBUG_FLAG} -c $< -o $@ 
 	@${CC} ${CFLAGS} -I${INC_DIR} -I${MINILIBX_DIR} -I${LIBFT_DIR}/include -I${GNL_DIR}/include ${DEBUG_FLAG} -c $< -o $@ 
+
 
 clean			:
 	@make --no-print-directory clean -C ${LIBFT_DIR}
-	@make --no-print-directory clean -C ${GNL_DIR}
-	@make --no-print-directory clean -C ${MINILIBX_DIR}
 	@echo "${RED}Cleaning build folder${RST}"
 	@rm -rf ${BUILD_DIR}
 
 fclean			:	clean
+#	@echo "${RED}Cleaning LIBFT (make fclean): $(RST)"
 	@make --no-print-directory fclean -C ${LIBFT_DIR}
-	@make --no-print-directory fclean -C ${GNL_DIR}
-#	@make --no-print-directory fclean -C ${MINILIBX_DIR}
 	@echo "${RED}Cleaning ${NAME}${RST}"
 	@rm -f ${NAME}
 
@@ -143,4 +148,4 @@ norm:
 # Phony
 ################################################################################
 
-.PHONY	:	all clean fclean re norm
+.PHONY	:	all clean fclean re norm libft gnl minilibx
