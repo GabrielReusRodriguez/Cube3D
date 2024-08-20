@@ -6,7 +6,7 @@
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 22:06:56 by gabriel           #+#    #+#             */
-/*   Updated: 2024/08/16 23:12:00 by gabriel          ###   ########.fr       */
+/*   Updated: 2024/08/20 21:38:03 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,29 @@
 
 #include "vector.h"
 
-t_vector	vector_init_points(t_point a, t_point b)
+t_vector	vector_init_points(t_point a, t_point b, bool normalize)
 {
 	t_vector	vector;
 
 	vector.x = b.x - a.x;
 	vector.y = b.y - a.y;
-	vector_calculate_modulus(&vector);
-	vector_normalize(&vector);
+	if (normalize)
+		vector_normalize(&vector);
+	else
+		vector_calculate_modulus(&vector);
 	return (vector);
 }
 
-t_vector	vector_init_values(double _x, double _y)
+t_vector	vector_init_values(double _x, double _y, bool normalize)
 {
 	t_vector	vector;
 
 	vector.x = _x;
 	vector.y = _y;
-	vector_calculate_modulus(&vector);
-	vector_normalize(&vector);
+	if (normalize)
+		vector_normalize(&vector);
+	else
+		vector_calculate_modulus(&vector);
 	return (vector);
 }
 
@@ -48,20 +52,8 @@ void		vector_calculate_modulus(t_vector *vector)
 
 void	vector_normalize(t_vector	*vector)
 {
+	vector_calculate_modulus(vector);
 	vector->x = vector->x /  vector->modulus;
 	vector->y = vector->y / vector->modulus;
 	vector->modulus = 1.0f;
-}
-
-void	vector_rotate(t_vector *vector, float angle)
-{
-	double	px;
-	double	py;
-
-	px = vector->x * cos(angle) - vector->y * sin(angle);
-	py = vector->x * sin(angle) + vector->y * cos(angle);	
-	vector->x = px;
-	vector->y = py;
-	vector_calculate_modulus(vector);
-	vector_normalize(vector);
 }

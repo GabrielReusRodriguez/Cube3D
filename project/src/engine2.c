@@ -6,12 +6,13 @@
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 21:18:33 by gabriel           #+#    #+#             */
-/*   Updated: 2024/08/18 21:19:12 by gabriel          ###   ########.fr       */
+/*   Updated: 2024/08/20 22:18:47 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "types.h"
 #include "engine.h"
+#include "mlx.h"
 
 bool	engine_update_screen_size(t_engine *engine)
 {

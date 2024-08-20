@@ -6,7 +6,7 @@
 #    By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/01 19:39:15 by gabriel           #+#    #+#              #
-#    Updated: 2024/08/20 21:15:01 by gabriel          ###   ########.fr        #
+#    Updated: 2024/08/20 22:23:55 by gabriel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,7 +42,7 @@ GNL_DIR			=	./gnl
 CC				=	cc
 CFLAGS			=	-Wall -Werror -Wextra
 ifdef	CSANITIZE
-	SANITIZE_FLAGS	= -g3 -fsanitize=address -fsanitize=leak
+	SANITIZE_FLAGS	= -g -O3 -fsanitize=address -fsanitize=leak
 endif
 DEBUG_FLAG		=	-D DEBUG_FLAG=0
 DEP_FLAGS		=	-MMD -MP
@@ -64,13 +64,15 @@ SRC				=	main					\
 					engine					\
 					engine2					\
 					engine_render			\
+					engine_textures			\
 					error					\
 					handler_key_events		\
 					handler_destroy_event	\
 					map						\
 					radiants				\
 					screen					\
-					vector
+					vector					\
+					vector_arithmetic
 
 HEADERS			=	cub3d.h			\
 					engine.h		\
@@ -93,6 +95,13 @@ DEPS			=	$(addprefix ${BUILD_DIR}/, $(addsuffix .d, ${SRC}))
 ################################################################################
 # Rules 
 ################################################################################
+
+
+#When we call all, we call the rule compile
+#This rule calls the libs makefiles and finally we call the make name
+#The rule  ${NAME} has as dependency the .a lib and compares the date of 
+# the timestamp of ${NAME} with the timestamp of the .a .o and Makefile files to link or not.
+
 
 all				:		compile
 

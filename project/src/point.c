@@ -1,18 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mlx_destroy_display.c                              :+:      :+:    :+:   */
+/*   point.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mg <mg@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/03 18:56:35 by mg                #+#    #+#             */
-/*   Updated: 2020/10/04 01:55:35 by mg               ###   ########.fr       */
+/*   Created: 2024/08/20 21:41:24 by gabriel           #+#    #+#             */
+/*   Updated: 2024/08/20 21:45:41 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mlx_int.h"
+#include "point.h"
 
-int	mlx_destroy_display(t_xvar *xvar)
+
+double	point_calculate_distance(t_point point1, t_point point2)
 {
-	XCloseDisplay(xvar->display);
+	double distance;
+	double	x;
+	double	y;
+
+	x = point2.x - point1.x;
+	y = point2.y - point1.y;
+	distance = sqrt(x*x + y*y);
+	return (distance);
 }

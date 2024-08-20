@@ -6,19 +6,17 @@
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 18:43:45 by gabriel           #+#    #+#             */
-/*   Updated: 2024/08/19 22:35:53 by gabriel          ###   ########.fr       */
+/*   Updated: 2024/08/20 22:24:55 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ENGINE_H
 # define ENGINE_H
 
-# include "types.h"
 # include "screen.h"
 # include "player.h"
 # include "map.h"
-
-# include "mlx.h"
+# include "texture.h"
 
 enum e_engine_events
 {
@@ -50,5 +48,7 @@ bool	engine_clear_window(t_engine *engine);
 bool	engine_get_screen_size(t_engine *engine);
 int		engine_render(void *param);
 
+bool	engine_texture_load(const char *filename, t_texture *texture, t_engine engine);
+bool	engine_textures_load(t_engine *engine);
 
 #endif

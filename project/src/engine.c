@@ -6,7 +6,7 @@
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 19:33:19 by gabriel           #+#    #+#             */
-/*   Updated: 2024/08/19 22:40:14 by gabriel          ###   ########.fr       */
+/*   Updated: 2024/08/20 22:18:37 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 #include "engine.h"
 #include "events.h"
+#include "mlx.h"
 
 #include <X11/X.h>
 
