@@ -6,7 +6,7 @@
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 18:43:45 by gabriel           #+#    #+#             */
-/*   Updated: 2024/08/20 22:24:55 by gabriel          ###   ########.fr       */
+/*   Updated: 2024/08/22 20:53:24 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define ENGINE_H
 
 # include "screen.h"
-# include "player.h"
+# include "camera.h"
 # include "map.h"
 # include "texture.h"
 
@@ -33,14 +33,14 @@ typedef	struct s_engine
 {
 	void		*mlx;
 	void		*mlx_win;
-	t_player	*player;
+	t_camera	camera;
 	t_map		*map;
 	t_screen	screen;
 	void		**textures;
 
 }	t_engine;
 
-bool	engine_init(t_engine *engine, t_player *player, t_map *map);
+bool	engine_init(t_engine *engine, t_map *map);
 bool	engine_start(t_engine *engine);
 void	engine_loop(t_engine *engine);
 void	engine_destroy(t_engine *engine);

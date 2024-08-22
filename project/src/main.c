@@ -6,7 +6,7 @@
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/01 19:53:01 by gabriel           #+#    #+#             */
-/*   Updated: 2024/08/19 22:37:35 by gabriel          ###   ########.fr       */
+/*   Updated: 2024/08/22 20:54:59 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,10 @@ int	main(int argc, char **argv)
 {
 	t_engine	engine;
 	t_map		map;
-	t_player	player;
 
 	(void)argc;
 	(void)argv;
-	if (!engine_init(&engine, &player, &map))
+	if (!engine_init(&engine, &map))
 	{
 		printf("ERROR al inicializar minilibx\n");
 		return (EXIT_FAILURE);

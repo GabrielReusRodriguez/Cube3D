@@ -6,7 +6,7 @@
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 19:33:19 by gabriel           #+#    #+#             */
-/*   Updated: 2024/08/20 22:18:37 by gabriel          ###   ########.fr       */
+/*   Updated: 2024/08/22 21:13:26 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,15 @@
 
 #include <X11/X.h>
 
-bool	engine_init(t_engine *engine, t_player *player, t_map *map)
+bool	engine_init(t_engine *engine, t_map *map)
 {
 	engine->mlx = NULL;
 	engine->mlx_win = NULL;
 	engine->mlx = mlx_init();
 	if (engine->mlx == NULL)
 		return (false);
-	engine->player = player;
 	engine->map = map;
+	//camera_init();
 	return (true);
 }
 
@@ -69,5 +69,4 @@ void	engine_loop(t_engine *engine)
 {
 	mlx_loop(engine->mlx);
 }
-
 

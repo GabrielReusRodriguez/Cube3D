@@ -6,7 +6,7 @@
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 21:34:40 by gabriel           #+#    #+#             */
-/*   Updated: 2024/08/18 19:35:39 by gabriel          ###   ########.fr       */
+/*   Updated: 2024/08/22 22:49:49 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,13 @@
 # include <stddef.h>
 # include <stdbool.h>
 
-enum e_tile_types
+typedef 
+enum e_orientations
 {	
 	NORTH,
 	EAST,
 	SOUTH,
 	WEST
-};
+} t_orientations;
 
 #endif

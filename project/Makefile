@@ -6,7 +6,7 @@
 #    By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/01 19:39:15 by gabriel           #+#    #+#              #
-#    Updated: 2024/08/20 22:23:55 by gabriel          ###   ########.fr        #
+#    Updated: 2024/08/22 22:53:02 by gabriel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,7 +47,8 @@ endif
 DEBUG_FLAG		=	-D DEBUG_FLAG=0
 DEP_FLAGS		=	-MMD -MP
 CFLAGS			+=	${DEP_FLAGS}
-LIBS			=	-lm -lft -lgnl -lmlx_Linux
+#LIBS			=	-lm -lft -lgnl -lmlx_Linux
+LIBS			=	-lm -lgnl -lft -lmlx_Linux
 LIBS_FOLDERS	=	-L${LIBFT_DIR} -L${MINILIBX_DIR} -L${GNL_DIR}
 
 ################################################################################
@@ -61,6 +62,9 @@ NAME	=	cube3d
 ################################################################################
 
 SRC				=	main					\
+					map						\
+					map_loader				\
+					camera					\
 					engine					\
 					engine2					\
 					engine_render			\
@@ -68,13 +72,13 @@ SRC				=	main					\
 					error					\
 					handler_key_events		\
 					handler_destroy_event	\
-					map						\
 					radiants				\
 					screen					\
 					vector					\
 					vector_arithmetic
 
-HEADERS			=	cub3d.h			\
+HEADERS			=	camera.h		\
+					cub3d.h			\
 					engine.h		\
 					error.h			\
 					events.h		\
@@ -130,7 +134,7 @@ clean			:
 	@make --no-print-directory clean -C ${GNL_DIR}
 	@make --no-print-directory clean -C ${MINILIBX_DIR}
 	@echo "${RED}Cleaning build folder${RST}"
-	@rm -rf ${BUILD_DIR}
+	@rm -rf ${BUILD_DIR}/*
 
 fclean			:	clean
 	@make --no-print-directory fclean -C ${LIBFT_DIR}

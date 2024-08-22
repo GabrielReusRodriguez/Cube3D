@@ -6,7 +6,7 @@
 #    By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/13 02:39:39 by greus-ro          #+#    #+#              #
-#    Updated: 2024/08/18 22:24:33 by gabriel          ###   ########.fr        #
+#    Updated: 2024/08/22 22:40:31 by gabriel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,7 +45,7 @@ clean:
 	rm -f ${BIN_DIR}/*.d
 
 fclean: clean 
-	rm -f ${BIN_DIR}/*.a
+	rm -f ./*.a
 
 re: fclean all
 
