@@ -6,7 +6,7 @@
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/24 21:08:30 by gabriel           #+#    #+#             */
-/*   Updated: 2024/08/24 21:48:33 by gabriel          ###   ########.fr       */
+/*   Updated: 2024/08/24 21:54:18 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,12 @@ bool	config_file_init(t_config_file *cfg, const char *filename)
 	return (true);
 }
 
-static void	config_file_destroy_map(t_config_file **cfg)
+static void	config_file_destroy_map(t_config_file *cfg)
 {
 	char	**map;
 	size_t	i;
 
-	map = (*cfg)->map;
+	map = cfg->map;
 	if (map != NULL)
 	{
 		i = 0;
@@ -58,12 +58,12 @@ static void	config_file_destroy_map(t_config_file **cfg)
 			i++;
 		}
 		free(map);
-		(*cfg)->map = NULL;
+		cfg->map = NULL;
 	}
 }
 void	config_file_destroy(t_config_file *cfg)
 {
-	config_file_destroy_map(&cfg);
+	config_file_destroy_map(cfg);
 	ft_lstclear(&cfg->map_lines, free);
 	if (cfg->north_texture != NULL)
 		ft_ptr_free(&cfg->north_texture);
