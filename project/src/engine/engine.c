@@ -6,7 +6,7 @@
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 19:33:19 by gabriel           #+#    #+#             */
-/*   Updated: 2024/08/22 21:13:26 by gabriel          ###   ########.fr       */
+/*   Updated: 2024/08/24 20:39:30 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ bool	engine_start(t_engine *engine)
 //	mlx_destroy_display(engine->mlx); => da segmentation fault si lo llamo.
 void	engine_destroy(t_engine *engine)
 {
+	map_destroy(engine->map);
 	engine_clear_window(engine);
 	mlx_destroy_window(engine->mlx, engine->mlx_win);
 	screen_destroy(&engine->screen);

@@ -6,7 +6,7 @@
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 22:06:56 by gabriel           #+#    #+#             */
-/*   Updated: 2024/08/20 21:38:03 by gabriel          ###   ########.fr       */
+/*   Updated: 2024/08/24 21:01:33 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 #include "vector.h"
 
-t_vector	vector_init_points(t_point a, t_point b, bool normalize)
+t_vector	vector_new_from_points(t_point a, t_point b, bool normalize)
 {
 	t_vector	vector;
 
@@ -27,7 +27,7 @@ t_vector	vector_init_points(t_point a, t_point b, bool normalize)
 	return (vector);
 }
 
-t_vector	vector_init_values(double _x, double _y, bool normalize)
+t_vector	vector_new_from_values(double _x, double _y, bool normalize)
 {
 	t_vector	vector;
 

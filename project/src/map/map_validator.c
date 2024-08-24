@@ -1,36 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   point.c                                            :+:      :+:    :+:   */
+/*   map_validator.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/20 21:41:24 by gabriel           #+#    #+#             */
-/*   Updated: 2024/08/24 21:02:25 by gabriel          ###   ########.fr       */
+/*   Created: 2024/08/24 20:43:22 by gabriel           #+#    #+#             */
+/*   Updated: 2024/08/24 21:29:58 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <math.h>
+#include "map.h"
 
-#include "point.h"
-
-t_point	point_new(int x, int y)
+/* First we check north and south walls, then */
+static	bool	map_validator_check_closed(t_map *map)
 {
-	t_point	point;
+	size_t	i;
+	size_t	j;
 
-	point.x = x;
-	point.y = y;
-	return (point);
+	i = 0;
+	j = 0;
+	while (i <)
 }
 
-double	point_calculate_distance(t_point point1, t_point point2)
-{
-	double distance;
-	double	x;
-	double	y;
 
-	x = point2.x - point1.x;
-	y = point2.y - point1.y;
-	distance = sqrt(x*x + y*y);
-	return (distance);
+bool	map_validator(t_map *map)
+{
+
+	return (true);
 }

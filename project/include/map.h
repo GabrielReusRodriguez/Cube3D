@@ -6,7 +6,7 @@
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 21:28:10 by gabriel           #+#    #+#             */
-/*   Updated: 2024/08/24 19:54:24 by gabriel          ###   ########.fr       */
+/*   Updated: 2024/08/24 20:42:42 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,9 @@ bool	map_load(t_map *map, const char *filename);
 
 //map_parser.c
 bool	map_parse(t_map *map, const char *filename);
+
+//map_validator.c
+bool	map_validator(t_map *map);
+
 
 #endif

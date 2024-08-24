@@ -6,7 +6,7 @@
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/24 19:33:26 by gabriel           #+#    #+#             */
-/*   Updated: 2024/08/24 20:02:50 by gabriel          ###   ########.fr       */
+/*   Updated: 2024/08/24 21:03:18 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static bool map_parse_line(t_map *map, const char *line, size_t num_line)
 		tile_type = map_determine_tile_type(line[i]);
 		if (tile_type == TILE_UNKNOWN)
 			return (error_print_critical("Error: Unkonwn tile in map"), false);
-		tiles[i] = tile_init(i, num_line, tile_type);
+		tiles[i] = tile_new(i, num_line, tile_type);
 		i++;
 	}
 	return (true);

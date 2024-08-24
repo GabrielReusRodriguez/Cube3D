@@ -6,7 +6,7 @@
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 21:58:10 by gabriel           #+#    #+#             */
-/*   Updated: 2024/08/20 21:55:22 by gabriel          ###   ########.fr       */
+/*   Updated: 2024/08/24 21:01:02 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ typedef	struct s_vector
 }	t_vector;
 
 
-t_vector	vector_init_points(t_point a, t_point b, bool normalize);
-t_vector	vector_init_values(double _x, double _y, bool normalize);
+t_vector	vector_new_from_points(t_point a, t_point b, bool normalize);
+t_vector	vector_new_from_values(double _x, double _y, bool normalize);
 void		vector_calculate_modulus(t_vector *vector);
 void		vector_normalize(t_vector	*vector);
 t_vector	vector_rotate(t_vector vector, float rad_angle, bool normalize);

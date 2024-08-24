@@ -6,7 +6,7 @@
 #    By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/01 19:39:15 by gabriel           #+#    #+#              #
-#    Updated: 2024/08/24 20:21:33 by gabriel          ###   ########.fr        #
+#    Updated: 2024/08/24 20:59:07 by gabriel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,6 +63,7 @@ NAME	=	cube3d
 
 SRC				=	main								\
 					camera								\
+					color								\
 					engine/engine						\
 					engine/engine2						\
 					engine/engine_render				\
@@ -81,6 +82,7 @@ SRC				=	main								\
 					screen								
 
 HEADERS			=	camera.h		\
+					color.h			\
 					cub3d.h			\
 					engine.h		\
 					error.h			\

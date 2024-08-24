@@ -6,7 +6,7 @@
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 21:54:56 by gabriel           #+#    #+#             */
-/*   Updated: 2024/08/20 22:01:02 by gabriel          ###   ########.fr       */
+/*   Updated: 2024/08/24 21:01:58 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ typedef	struct s_point
 	int		y;
 }	t_point;
 
+
+t_point	point_new(int x, int y);
 double	point_calculate_distance(t_point point1, t_point point2);
 
 #endif

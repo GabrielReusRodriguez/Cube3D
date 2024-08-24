@@ -6,7 +6,7 @@
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 21:32:39 by gabriel           #+#    #+#             */
-/*   Updated: 2024/08/24 19:56:42 by gabriel          ###   ########.fr       */
+/*   Updated: 2024/08/24 21:00:25 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,6 @@ typedef struct s_tile
 
 }	t_tile;
 
-t_tile	tile_init(size_t _x, size_t _y, t_tile_type _type);
+t_tile	tile_new(size_t _x, size_t _y, t_tile_type _type);
 
 #endif

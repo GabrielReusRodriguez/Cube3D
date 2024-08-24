@@ -1,36 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   point.c                                            :+:      :+:    :+:   */
+/*   color.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/20 21:41:24 by gabriel           #+#    #+#             */
-/*   Updated: 2024/08/24 21:02:25 by gabriel          ###   ########.fr       */
+/*   Created: 2024/08/24 20:58:02 by gabriel           #+#    #+#             */
+/*   Updated: 2024/08/24 20:58:41 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <math.h>
+#include "color.h"
 
-#include "point.h"
-
-t_point	point_new(int x, int y)
+t_color	color_new(unsigned char _r, unsigned char _g, unsigned char _b)
 {
-	t_point	point;
+	t_color color;
 
-	point.x = x;
-	point.y = y;
-	return (point);
-}
-
-double	point_calculate_distance(t_point point1, t_point point2)
-{
-	double distance;
-	double	x;
-	double	y;
-
-	x = point2.x - point1.x;
-	y = point2.y - point1.y;
-	distance = sqrt(x*x + y*y);
-	return (distance);
+	color.r = _r;
+	color.g = _g;
+	color.b = _b;
+	return (color);
 }

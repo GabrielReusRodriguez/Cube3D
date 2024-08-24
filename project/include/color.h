@@ -1,36 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   point.c                                            :+:      :+:    :+:   */
+/*   color.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/20 21:41:24 by gabriel           #+#    #+#             */
-/*   Updated: 2024/08/24 21:02:25 by gabriel          ###   ########.fr       */
+/*   Created: 2024/08/24 20:56:15 by gabriel           #+#    #+#             */
+/*   Updated: 2024/08/24 20:57:50 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <math.h>
+#ifndef COLOR_H
+# define COLOR_H
 
-#include "point.h"
-
-t_point	point_new(int x, int y)
+typedef struct s_color
 {
-	t_point	point;
+	unsigned char r;
+	unsigned char g;
+	unsigned char b;
 
-	point.x = x;
-	point.y = y;
-	return (point);
-}
+} t_color;
 
-double	point_calculate_distance(t_point point1, t_point point2)
-{
-	double distance;
-	double	x;
-	double	y;
+t_color	color_new(unsigned char _r, unsigned char _g, unsigned char _b);
 
-	x = point2.x - point1.x;
-	y = point2.y - point1.y;
-	distance = sqrt(x*x + y*y);
-	return (distance);
-}
+#endif
