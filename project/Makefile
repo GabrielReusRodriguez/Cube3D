@@ -6,7 +6,7 @@
 #    By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/01 19:39:15 by gabriel           #+#    #+#              #
-#    Updated: 2024/08/22 22:53:02 by gabriel          ###   ########.fr        #
+#    Updated: 2024/08/24 20:00:27 by gabriel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,6 +64,7 @@ NAME	=	cube3d
 SRC				=	main					\
 					map						\
 					map_loader				\
+					map_parser				\
 					camera					\
 					engine					\
 					engine2					\
@@ -74,6 +75,7 @@ SRC				=	main					\
 					handler_destroy_event	\
 					radiants				\
 					screen					\
+					tile					\
 					vector					\
 					vector_arithmetic
 

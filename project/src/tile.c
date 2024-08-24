@@ -1,35 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tile.h                                             :+:      :+:    :+:   */
+/*   tile.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/16 21:32:39 by gabriel           #+#    #+#             */
-/*   Updated: 2024/08/24 19:56:42 by gabriel          ###   ########.fr       */
+/*   Created: 2024/08/24 19:48:58 by gabriel           #+#    #+#             */
+/*   Updated: 2024/08/24 19:49:45 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "tile.h"
 
-#ifndef	TILE_H
-# define TILE_H
-
-# include "types.h"
-typedef enum e_tile_type
+t_tile	tile_init(size_t _x, size_t _y, t_tile_type _type)
 {
-	TILE_EMPTY,
-	TILE_WALL,
-	TILE_UNKNOWN
-}	t_tile_type;
+	t_tile	tile;
 
-typedef struct s_tile
-{
-	size_t		x;
-	size_t		y;
-	t_tile_type	type;
-
-}	t_tile;
-
-t_tile	tile_init(size_t _x, size_t _y, t_tile_type _type);
-
-#endif
+	tile.x = _x;
+	tile.y = _y;
+	tile.type = _type;
+	return (tile);
+}

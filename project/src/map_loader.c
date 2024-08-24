@@ -6,7 +6,7 @@
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 21:29:18 by gabriel           #+#    #+#             */
-/*   Updated: 2024/08/22 22:47:51 by gabriel          ###   ########.fr       */
+/*   Updated: 2024/08/24 20:00:02 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,10 @@ static bool	map_get_size(t_map *map, const char *filename)
 	map->height = 0;
 	fd = open(filename, O_RDONLY);
 	if (fd < 0)
-	{	
-		error_perror_critical();
-		return (false);
-	}
+		return (error_perror_critical(), false);	
 	line = ft_strdup("");
+	if (line == NULL)
+		return (error_perror_critical(), false);
 	while (line != NULL)
 	{
 		free (line);
@@ -80,5 +79,7 @@ bool	map_load(t_map *map, const char *filename)
 		return (false);
 	if (!map_malloc(map))
 		return (false);
+	if (!map_parse(map, filename))
+		return (false);	
 	return (true);	
 }
