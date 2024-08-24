@@ -6,7 +6,7 @@
 #    By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/01 19:39:15 by gabriel           #+#    #+#              #
-#    Updated: 2024/08/24 20:00:27 by gabriel          ###   ########.fr        #
+#    Updated: 2024/08/24 20:21:33 by gabriel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,23 +61,24 @@ NAME	=	cube3d
 # Files
 ################################################################################
 
-SRC				=	main					\
-					map						\
-					map_loader				\
-					map_parser				\
-					camera					\
-					engine					\
-					engine2					\
-					engine_render			\
-					engine_textures			\
-					error					\
-					handler_key_events		\
-					handler_destroy_event	\
-					radiants				\
-					screen					\
-					tile					\
-					vector					\
-					vector_arithmetic
+SRC				=	main								\
+					camera								\
+					engine/engine						\
+					engine/engine2						\
+					engine/engine_render				\
+					engine/engine_textures				\
+					events/handler_key_events			\
+					events/handler_destroy_event		\
+					error								\
+					geometry/point						\
+					geometry/radiants					\
+					geometry/vector_arithmetic			\
+					geometry/vector						\
+					map/map								\
+					map/map_loader						\
+					map/map_parser						\
+					map/tile							\
+					screen								
 
 HEADERS			=	camera.h		\
 					cub3d.h			\
@@ -109,7 +110,7 @@ DEPS			=	$(addprefix ${BUILD_DIR}/, $(addsuffix .d, ${SRC}))
 # the timestamp of ${NAME} with the timestamp of the .a .o and Makefile files to link or not.
 
 
-all				:		compile
+all				:	${BUILD_DIR} compile
 
 ${NAME}			:	${OBJS} ${LIBFT_DIR}/libft.a ${GNL_DIR}/libgnl.a ${MINILIBX_DIR}/libmlx_Linux.a Makefile
 	@echo "${CYAN}Linking all together${RST}"
@@ -126,9 +127,16 @@ compile:
 	@echo "${CYAN}Making ${NAME}...${RST}"
 	@make --no-print-directory ${NAME}
 
+${BUILD_DIR}:
+	mkdir -p ${BUILD_DIR}
+	mkdir -p ${BUILD_DIR}/engine
+	mkdir -p ${BUILD_DIR}/events
+	mkdir -p ${BUILD_DIR}/geometry
+	mkdir -p ${BUILD_DIR}/map
+
 ${BUILD_DIR}/%.o	:	${SRC_DIR}/%.c Makefile
 	@echo "\t${YELLOW}Compiling ${NAME} ->${RST} $<"
-	@mkdir -p ${BUILD_DIR}
+#	@mkdir -p ${BUILD_DIR}
 	@${CC} ${CFLAGS} -I${INC_DIR} -I${MINILIBX_DIR} -I${LIBFT_DIR}/include -I${GNL_DIR}/include ${DEBUG_FLAG} -c $< -o $@ 
 
 clean			:
@@ -136,7 +144,7 @@ clean			:
 	@make --no-print-directory clean -C ${GNL_DIR}
 	@make --no-print-directory clean -C ${MINILIBX_DIR}
 	@echo "${RED}Cleaning build folder${RST}"
-	@rm -rf ${BUILD_DIR}/*
+	@rm -rf ${BUILD_DIR}
 
 fclean			:	clean
 	@make --no-print-directory fclean -C ${LIBFT_DIR}

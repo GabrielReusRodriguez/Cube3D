@@ -6,12 +6,13 @@
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 21:41:24 by gabriel           #+#    #+#             */
-/*   Updated: 2024/08/20 21:45:41 by gabriel          ###   ########.fr       */
+/*   Updated: 2024/08/24 20:22:15 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "point.h"
+#include <math.h>
 
+#include "point.h"
 
 double	point_calculate_distance(t_point point1, t_point point2)
 {
