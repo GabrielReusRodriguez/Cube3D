@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   config_file.h                                      :+:      :+:    :+:   */
+/*   config.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/24 20:53:17 by gabriel           #+#    #+#             */
-/*   Updated: 2024/08/24 21:45:03 by gabriel          ###   ########.fr       */
+/*   Updated: 2024/08/26 22:01:45 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONFIG_FILE_H
-# define CONFIG_FILE_H
+#ifndef CONFIG_H
+# define CONFIG_H
 
 # include "types.h"
 # include "color.h"
 # include "libft.h"
 
-typedef struct s_config_file
+typedef struct s_config
 {
 	char	**map;
 	t_list	*map_lines;
@@ -28,19 +28,21 @@ typedef struct s_config_file
 	t_color	floor_color;
 	t_color	ceiling_color;
 	
-}	t_config_file;
+}	t_config;
 
-//config_file.c
-bool	config_file_init(t_config_file *cfg, const char *filename);
-void	config_file_destroy(t_config_file *cfg);
+//config.c
+bool	config_init(t_config *cfg, const char *filename);
+void	config_destroy(t_config *cfg);
+bool	config_is_header_initialized(t_config config);
 
-//config_file_loader.c
-bool	config_file_load(t_config_file *cfg, int fd);
+//config_loader.c
+bool	config_load(t_config *cfg, int fd);
 
 //config_header_parser.c
-bool	config_file_parse_header(t_config_file *cfg, const char *line);
+bool	config_parse_header(t_config *cfg, int fd);
 
 //config_map_parser.c
-bool	config_file_parse_map(t_config_file *cfg, const char *line);
+bool	config_parse_map(t_config *cfg, int fd);
+void	config_debug(t_config cfg);
 
 #endif

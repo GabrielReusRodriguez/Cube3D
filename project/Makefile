@@ -6,7 +6,7 @@
 #    By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/01 19:39:15 by gabriel           #+#    #+#              #
-#    Updated: 2024/08/24 20:59:07 by gabriel          ###   ########.fr        #
+#    Updated: 2024/08/26 21:36:26 by gabriel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,6 +64,10 @@ NAME	=	cube3d
 SRC				=	main								\
 					camera								\
 					color								\
+					config/config_header_parser			\
+					config/config_loader				\
+					config/config_map_parser			\
+					config/config						\
 					engine/engine						\
 					engine/engine2						\
 					engine/engine_render				\
@@ -83,6 +87,7 @@ SRC				=	main								\
 
 HEADERS			=	camera.h		\
 					color.h			\
+					config.h		\
 					cub3d.h			\
 					engine.h		\
 					error.h			\
@@ -131,6 +136,7 @@ compile:
 
 ${BUILD_DIR}:
 	mkdir -p ${BUILD_DIR}
+	mkdir -p ${BUILD_DIR}/config
 	mkdir -p ${BUILD_DIR}/engine
 	mkdir -p ${BUILD_DIR}/events
 	mkdir -p ${BUILD_DIR}/geometry
