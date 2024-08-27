@@ -6,7 +6,7 @@
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/24 20:53:17 by gabriel           #+#    #+#             */
-/*   Updated: 2024/08/26 22:01:45 by gabriel          ###   ########.fr       */
+/*   Updated: 2024/08/27 22:09:38 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "types.h"
 # include "color.h"
 # include "libft.h"
+# include "point.h"
 
 typedef struct s_config
 {
@@ -27,6 +28,7 @@ typedef struct s_config
 	char	*east_texture;
 	t_color	floor_color;
 	t_color	ceiling_color;
+	t_point	player_position;
 	
 }	t_config;
 
@@ -43,6 +45,15 @@ bool	config_parse_header(t_config *cfg, int fd);
 
 //config_map_parser.c
 bool	config_parse_map(t_config *cfg, int fd);
+bool	config_map_list_2_ptr(t_config *cfg);
+
+//config_validator.c
+bool	config_validator(t_config *cfg);
+
 void	config_debug(t_config cfg);
+
+//config_validator_map.c
+bool config_validate_map(t_config *cfg);
+
 
 #endif

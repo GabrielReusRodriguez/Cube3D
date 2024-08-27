@@ -6,7 +6,7 @@
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/24 21:08:30 by gabriel           #+#    #+#             */
-/*   Updated: 2024/08/26 22:36:17 by gabriel          ###   ########.fr       */
+/*   Updated: 2024/08/27 22:12:09 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ static	void	config_init_vars(t_config *config)
 	config->floor_color.r = -1;
 	config->floor_color.g = -1;
 	config->floor_color.b = -1;
+	config->player_position.x = -1;
+	config->player_position.y = -1;
 }
 
 bool	config_is_header_initialized(t_config config)
@@ -59,6 +61,9 @@ bool	config_init(t_config *cfg, const char *filename)
 	if (!config_load(cfg, fd))
 		return (close (fd), false);
 	close (fd);
+	if (!config_map_list_2_ptr(cfg))
+		return (false);
+	ft_lstclear(&cfg->map_lines, free);
 	return (true);
 }
 
@@ -88,7 +93,8 @@ void	config_destroy(t_config *cfg)
 {
 	ft_ptr_free_double_ptr(cfg->map);
 //	config_file_destroy_map(cfg);
-	ft_lstclear(&cfg->map_lines, free);
+	if (cfg->map_lines != NULL)
+		ft_lstclear(&cfg->map_lines, free);
 	if (cfg->north_texture != NULL)
 		cfg->north_texture = ft_ptr_free(cfg->north_texture);
 	if (cfg->south_texture != NULL)
@@ -103,8 +109,8 @@ void	config_destroy(t_config *cfg)
 
 void	config_debug(t_config cfg)
 {
-
 	t_list	*node;
+	size_t	i;
 
 	printf("DEBUG CONFIG********************************\n");
 	printf("\t NO: %s\n", cfg.north_texture);
@@ -124,6 +130,15 @@ void	config_debug(t_config cfg)
 	}
 	printf("\n");
 	printf("\t MAP LIST ***\n");
+	printf("\t MAP PTR ***\n");
+	i = 0;
+	while (cfg.map[i] != NULL)
+	{
+		printf("\t\t%s", cfg.map[i]);
+		i++;
+	}
+	printf("\n");
+	printf("\t MAP PTR ***\n");
 	printf("DEBUG CONFIG********************************\n");	
 }
 

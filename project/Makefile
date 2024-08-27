@@ -6,7 +6,7 @@
 #    By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/01 19:39:15 by gabriel           #+#    #+#              #
-#    Updated: 2024/08/26 21:36:26 by gabriel          ###   ########.fr        #
+#    Updated: 2024/08/27 21:57:09 by gabriel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -67,6 +67,8 @@ SRC				=	main								\
 					config/config_header_parser			\
 					config/config_loader				\
 					config/config_map_parser			\
+					config/config_validator_map			\
+					config/config_validator				\
 					config/config						\
 					engine/engine						\
 					engine/engine2						\
@@ -88,13 +90,14 @@ SRC				=	main								\
 HEADERS			=	camera.h		\
 					color.h			\
 					config.h		\
-					cub3d.h			\
+					constants.h		\
 					engine.h		\
 					error.h			\
 					events.h		\
 					map.h			\
 					player.h		\
 					point.h			\
+					radiants.h		\
 					screen.h		\
 					texture.h		\
 					tile.h			\
