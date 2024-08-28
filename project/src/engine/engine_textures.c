@@ -6,27 +6,49 @@
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 22:12:40 by gabriel           #+#    #+#             */
-/*   Updated: 2024/08/20 22:26:51 by gabriel          ###   ########.fr       */
+/*   Updated: 2024/08/28 20:12:51 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stdlib.h>
 
 #include "texture.h"
 #include "engine.h"
 #include "mlx.h"
+#include "libft.h"
+#include "error.h"
 
 //void	*mlx_png_file_to_image(void *mlx_ptr, char *filename, int *width, int *height);
 bool	engine_texture_load(const char *filename, t_texture *texture, t_engine engine)
 {
-//	texture->mlx_image = mlx_png_file_to_image(engine.mlx, (char *)filename, 
+	char	*line;
+	
 	texture->mlx_image = mlx_xpm_file_to_image(engine.mlx, (char *)filename, \
 		&texture->width, &texture->height);
 	if (texture->mlx_image == NULL)
+	{
+		line = ft_strjoin(filename, " cannot be loaded.");
+		if (line == NULL)
+			return (error_perror_critical(),false);
+		error_print_critical(line);
+		free(line);
 		return (false);
+	}
 	return (true);
 }
 
 bool	engine_textures_load(t_engine *engine)
 {
-	(void)engine;
+	t_config	*cfg;
+
+	cfg = engine->cfg;
+	if (!engine_texture_load(cfg->north_texture, &engine->textures[TEXTURE_NORTH], *engine))
+		return (false);
+	if (!engine_texture_load(cfg->south_texture, &engine->textures[TEXTURE_SOUTH], *engine))
+		return (false);
+	if (!engine_texture_load(cfg->west_texture, &engine->textures[TEXTURE_WEST], *engine))
+		return (false);
+	if (!engine_texture_load(cfg->east_texture, &engine->textures[TEXTURE_EAST], *engine))
+		return (false);
 	return (true);	
 }

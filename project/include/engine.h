@@ -6,7 +6,7 @@
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 18:43:45 by gabriel           #+#    #+#             */
-/*   Updated: 2024/08/22 20:53:24 by gabriel          ###   ########.fr       */
+/*   Updated: 2024/08/28 21:12:59 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include "camera.h"
 # include "map.h"
 # include "texture.h"
+# include "config.h"
 
 enum e_engine_events
 {
@@ -29,18 +30,28 @@ enum e_engine_events
 	ON_DESTROY = 17
 };
 
+enum	e_engine_textures
+{
+	TEXTURE_NORTH = 0,
+	TEXTURE_SOUTH = 1,
+	TEXTURE_WEST = 2,
+	TEXTURE_EAST = 3
+};
+
 typedef	struct s_engine
 {
 	void		*mlx;
 	void		*mlx_win;
+	void		*mlx_image;
 	t_camera	camera;
-	t_map		*map;
+	t_map		map;
+	t_config	*cfg;
 	t_screen	screen;
-	void		**textures;
+	t_texture	textures[4];
 
 }	t_engine;
 
-bool	engine_init(t_engine *engine, t_map *map);
+bool	engine_init(t_engine *engine, t_config *cfg);
 bool	engine_start(t_engine *engine);
 void	engine_loop(t_engine *engine);
 void	engine_destroy(t_engine *engine);
