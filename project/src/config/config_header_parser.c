@@ -6,7 +6,7 @@
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/24 21:41:43 by gabriel           #+#    #+#             */
-/*   Updated: 2024/08/26 22:37:53 by gabriel          ###   ########.fr       */
+/*   Updated: 2024/08/29 22:10:00 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,8 +107,9 @@ bool	config_parse_header(t_config *cfg, int fd)
 		free (line);
 		if (config_is_header_initialized(*cfg))
 			break;
-		line = ft_get_next_line_many_fds(fd);
-		if (line != NULL)
+		if (!config_get_trimmed_line(&line, fd))
+			return (false);
+		if (line != NULL && ft_strlen(line) > 0)
 		{
 			if (ft_strncmp(line, "F ", 2) == 0 || ft_strncmp(line, "C ", 2) == 0)
 			{
@@ -125,3 +126,36 @@ bool	config_parse_header(t_config *cfg, int fd)
 	}
 	return (true);
 }
+/*
+bool	config_parse_header(t_config *cfg, int fd)
+{
+	char	*line;
+	char	*trim_line;
+
+	line = ft_strdup("");
+	while (line != NULL)
+	{	
+		free (line);
+		if (config_is_header_initialized(*cfg))
+			break;
+//		line = ft_get_next_line_many_fds(fd);
+		if (!config_get_trimmed_line(&line, fd))
+			return (false);
+		if (line != NULL && ft_strlen(line) > 0)
+		{
+			if (ft_strncmp(trim_line, "F ", 2) == 0 || ft_strncmp(trim_line, "C ", 2) == 0)
+			{
+				if (!config_set_colors(cfg, trim_line))
+					return (free(trim_line), false);
+			}
+			if (config_is_texture_line(trim_line))
+			{
+				if (!config_set_texture(cfg, trim_line))
+					return (free(trim_line), false);
+			}
+			continue;
+		}
+	}
+	return (true);
+}
+*/

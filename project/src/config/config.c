@@ -6,7 +6,7 @@
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/24 21:08:30 by gabriel           #+#    #+#             */
-/*   Updated: 2024/08/27 22:12:09 by gabriel          ###   ########.fr       */
+/*   Updated: 2024/08/29 22:18:26 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include "libft.h"
 #include "config.h"
 #include "error.h"
+#include "ft_get_next_line.h"
 
 static	void	config_init_vars(t_config *config)
 {
@@ -104,6 +105,25 @@ void	config_destroy(t_config *cfg)
 	if (cfg->east_texture != NULL)
 		cfg->east_texture = ft_ptr_free(cfg->east_texture);
 }
+
+
+bool	config_get_trimmed_line(char **trim_line, int fd)
+{
+	char	*line;
+	
+	line = ft_get_next_line_many_fds(fd);
+	if (line != NULL)
+	{
+		*trim_line = ft_strtrim(line, "\n\r");
+		free (line);
+		if (*trim_line == NULL)
+			return (false);
+	}
+	else
+		*trim_line = NULL;
+	return (true);		
+}
+
 
 #include <stdio.h>
 

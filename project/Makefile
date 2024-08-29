@@ -6,7 +6,7 @@
 #    By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/01 19:39:15 by gabriel           #+#    #+#              #
-#    Updated: 2024/08/27 21:57:09 by gabriel          ###   ########.fr        #
+#    Updated: 2024/08/28 22:00:39 by gabriel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -95,6 +95,7 @@ HEADERS			=	camera.h		\
 					error.h			\
 					events.h		\
 					map.h			\
+					mlx_image.h		\
 					player.h		\
 					point.h			\
 					radiants.h		\

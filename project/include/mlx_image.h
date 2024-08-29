@@ -1,41 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   color.h                                            :+:      :+:    :+:   */
+/*   mlx_image.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/24 20:56:15 by gabriel           #+#    #+#             */
-/*   Updated: 2024/08/29 23:17:38 by gabriel          ###   ########.fr       */
+/*   Created: 2024/08/28 21:57:25 by gabriel           #+#    #+#             */
+/*   Updated: 2024/08/29 20:30:58 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef COLOR_H
-# define COLOR_H
+#ifndef MLX_IMAGE_H
+# define MLX_IMAGE_H
 
-# include "mlx_image.h"
-# include "engine.h"
-/*
-typedef struct s_color
+typedef struct s_mlx_image
 {
-	unsigned char r;
-	unsigned char g;
-	unsigned char b;
-
-} t_color;
-*/
-
-typedef struct s_color
-{
-	int r;
-	int g;
-	int b;
-
-} t_color;
-
-
-t_color	color_new(unsigned char _r, unsigned char _g, unsigned char _b);
-char	color_2_pixel(t_color color, t_mlx_image img, t_engine *engine);
-
+	int 	pixel_bits;
+	int 	line_bytes;
+	int 	endian;
+	void	*image;
+	
+}	t_mlx_image;
 
 #endif
