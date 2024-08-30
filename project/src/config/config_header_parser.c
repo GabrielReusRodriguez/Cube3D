@@ -6,7 +6,7 @@
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/24 21:41:43 by gabriel           #+#    #+#             */
-/*   Updated: 2024/08/29 22:10:00 by gabriel          ###   ########.fr       */
+/*   Updated: 2024/08/30 22:41:52 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ static	bool	config_parse_colors(t_color *color, const char *colors_line)
 	if (token_list == NULL)
 		return (error_perror_critical(), false);
 	i = 0;
+	color->a = 0;
 	while (token_list[i] != NULL)
 	{
 		color_component = ft_atoi(token_list[i]);
