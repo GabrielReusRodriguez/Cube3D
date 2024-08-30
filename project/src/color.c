@@ -6,24 +6,26 @@
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/24 20:58:02 by gabriel           #+#    #+#             */
-/*   Updated: 2024/08/29 23:19:51 by gabriel          ###   ########.fr       */
+/*   Updated: 2024/08/30 21:37:01 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "color.h"
 
-t_color	color_new(unsigned char _r, unsigned char _g, unsigned char _b)
+t_color	color_new(unsigned char _r, unsigned char _g, unsigned char _b, unsigned char _a)
 {
 	t_color color;
 
 	color.r = _r;
 	color.g = _g;
 	color.b = _b;
+	color.a = _a;
 	return (color);
 }
 
-char	color_2_pixel(t_color color, t_mlx_image img, t_engine *engine)
+char	color_2_pixel(t_color color, t_engine *engine)
 {
+	/*
 	int color = 0xABCDEF;
 
 	if (pixel_bits != 32)
@@ -49,4 +51,11 @@ char	color_2_pixel(t_color color, t_mlx_image img, t_engine *engine)
 				buffer[pixel + 3] = (color >> 24);
 			}
 	}
+	*/
+	char	mlx_color;
+
+	(void)color;
+	(void)engine;
+	mlx_color = 'A';
+	return (mlx_color);
 }

@@ -6,7 +6,7 @@
 #    By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/01 19:39:15 by gabriel           #+#    #+#              #
-#    Updated: 2024/08/28 22:00:39 by gabriel          ###   ########.fr        #
+#    Updated: 2024/08/30 21:05:15 by gabriel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -74,6 +74,7 @@ SRC				=	main								\
 					engine/engine2						\
 					engine/engine_render				\
 					engine/engine_textures				\
+					engine/frame						\
 					events/handler_key_events			\
 					events/handler_destroy_event		\
 					error								\
@@ -94,6 +95,7 @@ HEADERS			=	camera.h		\
 					engine.h		\
 					error.h			\
 					events.h		\
+					frame.h			\
 					map.h			\
 					mlx_image.h		\
 					player.h		\

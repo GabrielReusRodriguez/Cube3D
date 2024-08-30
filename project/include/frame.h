@@ -1,25 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mlx_image.h                                        :+:      :+:    :+:   */
+/*   frame.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/28 21:57:25 by gabriel           #+#    #+#             */
-/*   Updated: 2024/08/29 20:30:58 by gabriel          ###   ########.fr       */
+/*   Created: 2024/08/30 20:56:48 by gabriel           #+#    #+#             */
+/*   Updated: 2024/08/30 22:39:31 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MLX_IMAGE_H
-# define MLX_IMAGE_H
+#ifndef FRAME_H
+# define FRAME_H
 
-typedef struct s_mlx_image
+# include "engine.h"
+# include "color.h"
+
+typedef struct s_frame
 {
 	int 	pixel_bits;
 	int 	line_bytes;
 	int 	endian;
 	void	*image;
-	
-}	t_mlx_image;
+	char	*buffer;
+
+}	t_frame;
+
+//engine/frame.c
+bool	frame_init(t_engine *engine, t_frame *frame);
+void	frame_destroy(t_engine *engine, t_frame *frame);
+void	frame_set_pixel(t_frame *frame, t_color color, t_point point);
+void	frame_set_pixel_int(t_engine *engine, t_frame *frame, int color, t_point point);
 
 #endif
