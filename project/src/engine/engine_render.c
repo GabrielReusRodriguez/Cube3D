@@ -6,7 +6,7 @@
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 22:20:03 by gabriel           #+#    #+#             */
-/*   Updated: 2024/08/30 22:36:54 by gabriel          ###   ########.fr       */
+/*   Updated: 2024/08/31 19:42:23 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include "error.h"
 #include "mlx.h"
 #include "frame.h"
+
 
 static void	engine_render_background(t_engine *engine, t_frame *frame)
 {
@@ -46,7 +47,8 @@ static void	engine_render_background(t_engine *engine, t_frame *frame)
 static bool	engine_render_create_frame(t_engine *engine, t_frame *frame)
 {
 	engine_render_background(engine, frame);
-	mlx_put_image_to_window(engine->mlx, engine->mlx_win, engine->mlx_image, 0, 0);
+	mlx_put_image_to_window(engine->mlx, engine->mlx_win, frame->image, 0, 0);
+	//engine->mlx_image = frame->image;
 	return (true);
 }
 

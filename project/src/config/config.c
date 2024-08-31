@@ -6,7 +6,7 @@
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/24 21:08:30 by gabriel           #+#    #+#             */
-/*   Updated: 2024/08/29 22:18:26 by gabriel          ###   ########.fr       */
+/*   Updated: 2024/08/31 19:12:08 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ static	void	config_init_vars(t_config *config)
 	config->floor_color.b = -1;
 	config->player_position.x = -1;
 	config->player_position.y = -1;
+	config->player_orientation = NONE;
 }
 
 bool	config_is_header_initialized(t_config config)

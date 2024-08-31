@@ -6,7 +6,7 @@
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 22:12:40 by gabriel           #+#    #+#             */
-/*   Updated: 2024/08/28 20:12:51 by gabriel          ###   ########.fr       */
+/*   Updated: 2024/08/31 20:14:30 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,4 +51,18 @@ bool	engine_textures_load(t_engine *engine)
 	if (!engine_texture_load(cfg->east_texture, &engine->textures[TEXTURE_EAST], *engine))
 		return (false);
 	return (true);	
+}
+
+static void	engine_texture_destroy(t_engine *engine, t_texture *texture)
+{
+	mlx_destroy_image(engine->mlx, texture->mlx_image);
+	texture->mlx_image = NULL;
+}
+
+void	engine_textures_destroy(t_engine *engine)
+{
+	engine_texture_destroy(engine, &engine->textures[TEXTURE_NORTH]);
+	engine_texture_destroy(engine, &engine->textures[TEXTURE_SOUTH]);
+	engine_texture_destroy(engine, &engine->textures[TEXTURE_WEST]);
+	engine_texture_destroy(engine, &engine->textures[TEXTURE_EAST]);	
 }

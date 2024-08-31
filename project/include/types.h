@@ -6,7 +6,7 @@
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 21:34:40 by gabriel           #+#    #+#             */
-/*   Updated: 2024/08/22 22:49:49 by gabriel          ###   ########.fr       */
+/*   Updated: 2024/08/31 19:11:39 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 typedef 
 enum e_orientations
 {	
+	NONE,
 	NORTH,
 	EAST,
 	SOUTH,

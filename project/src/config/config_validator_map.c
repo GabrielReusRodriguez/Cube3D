@@ -6,11 +6,24 @@
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 21:49:35 by gabriel           #+#    #+#             */
-/*   Updated: 2024/08/27 22:18:40 by gabriel          ###   ########.fr       */
+/*   Updated: 2024/08/31 19:15:42 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "config.h"
+
+static	t_orientations	config_map_resolve_orientation(char orientation)
+{
+	if (orientation == 'N')
+		return (NORTH);
+	if (orientation == 'S')
+		return (SOUTH);
+	if (orientation == 'E')
+		return (EAST);
+	if (orientation == 'W')
+		return (WEST);
+	return (NONE);
+}
 
 bool	config_map_find_player(t_config *cfg)
 {
@@ -27,6 +40,8 @@ bool	config_map_find_player(t_config *cfg)
 					cfg->map[i][j] == 'W' || cfg->map[i][j] == 'E' )
 			{
 				cfg->player_position = point_new(i,j);
+				cfg->player_orientation = \
+							config_map_resolve_orientation(cfg->map[i][j]);
 				return (true);
 			}
 			j++;

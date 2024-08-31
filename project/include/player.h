@@ -6,7 +6,7 @@
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 22:29:37 by gabriel           #+#    #+#             */
-/*   Updated: 2024/08/18 18:43:32 by gabriel          ###   ########.fr       */
+/*   Updated: 2024/08/31 19:04:19 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,12 @@
 
 # include "vector.h"
 # include "point.h"
-
-# define ANGLE_OF_VISION	45.0f
-
 typedef	struct s_player
 {
-	t_point		position;
+	t_point			position;
+	t_orientations	orientation;
 //	float		angle_orientation;
-	t_vector	orientation;
+//	t_vector	orientation;
 	
 }	t_player;
 

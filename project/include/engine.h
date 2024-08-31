@@ -6,7 +6,7 @@
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 18:43:45 by gabriel           #+#    #+#             */
-/*   Updated: 2024/08/30 21:14:56 by gabriel          ###   ########.fr       */
+/*   Updated: 2024/08/31 20:14:38 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ typedef	struct s_engine
 {
 	void		*mlx;
 	void		*mlx_win;
-	void		*mlx_image;
 	t_camera	camera;
 	t_map		map;
 	t_config	*cfg;
@@ -59,7 +58,9 @@ bool	engine_clear_window(t_engine *engine);
 bool	engine_get_screen_size(t_engine *engine);
 int		engine_render(void *param);
 
+//engine/engine_texture.c
 bool	engine_texture_load(const char *filename, t_texture *texture, t_engine engine);
 bool	engine_textures_load(t_engine *engine);
+void	engine_textures_destroy(t_engine *engine);
 
 #endif

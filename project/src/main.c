@@ -6,7 +6,7 @@
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/01 19:53:01 by gabriel           #+#    #+#             */
-/*   Updated: 2024/08/28 20:22:30 by gabriel          ###   ########.fr       */
+/*   Updated: 2024/08/31 19:19:03 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ int	main(int argc, char **argv)
 			EXIT_FAILURE);
 	if(!config_init(&cfg, argv[1]))
 		return (EXIT_FAILURE);
+//	if (!config_validation(&cfg))
+//		return (config_destroy(&cfg), EXIT_FAILURE);
 	config_debug(cfg);
 	if (!engine_init(&engine, &cfg))
 		return (engine_destroy(&engine), EXIT_FAILURE);

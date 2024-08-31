@@ -6,7 +6,7 @@
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/24 20:53:17 by gabriel           #+#    #+#             */
-/*   Updated: 2024/08/29 22:17:11 by gabriel          ###   ########.fr       */
+/*   Updated: 2024/08/31 19:09:37 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,17 @@
 
 typedef struct s_config
 {
-	char	**map;
-	t_list	*map_lines;
-	char	*north_texture;
-	char	*south_texture;
-	char	*west_texture;
-	char	*east_texture;
-	t_color	floor_color;
-	t_color	ceiling_color;
-	t_point	player_position;
+	char			**map;
+	t_list			*map_lines;
+	char			*north_texture;
+	char			*south_texture;
+	char			*west_texture;
+	char			*east_texture;
+	t_color			floor_color;
+	t_color			ceiling_color;
+	t_point			player_position;
+	t_orientations	player_orientation;
+
 	
 }	t_config;
 
