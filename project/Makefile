@@ -6,7 +6,7 @@
 #    By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/01 19:39:15 by gabriel           #+#    #+#              #
-#    Updated: 2024/08/30 21:05:15 by gabriel          ###   ########.fr        #
+#    Updated: 2024/09/03 22:05:08 by gabriel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -70,6 +70,7 @@ SRC				=	main								\
 					config/config_validator_map			\
 					config/config_validator				\
 					config/config						\
+					dda/dda								\
 					engine/engine						\
 					engine/engine2						\
 					engine/engine_render				\
@@ -78,6 +79,7 @@ SRC				=	main								\
 					events/handler_key_events			\
 					events/handler_destroy_event		\
 					error								\
+					flooding/flooging					\
 					geometry/point						\
 					geometry/radiants					\
 					geometry/vector_arithmetic			\
@@ -92,9 +94,11 @@ HEADERS			=	camera.h		\
 					color.h			\
 					config.h		\
 					constants.h		\
+					dda.h			\
 					engine.h		\
 					error.h			\
 					events.h		\
+					flooding.h		\
 					frame.h			\
 					map.h			\
 					mlx_image.h		\
@@ -143,8 +147,10 @@ compile:
 ${BUILD_DIR}:
 	mkdir -p ${BUILD_DIR}
 	mkdir -p ${BUILD_DIR}/config
+	mkdir -p ${BUILD_DIR}/dda
 	mkdir -p ${BUILD_DIR}/engine
 	mkdir -p ${BUILD_DIR}/events
+	mkdir -p ${BUILD_DIR}/flooding
 	mkdir -p ${BUILD_DIR}/geometry
 	mkdir -p ${BUILD_DIR}/map
 
