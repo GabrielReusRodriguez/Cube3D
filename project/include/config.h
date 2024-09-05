@@ -6,7 +6,7 @@
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/24 20:53:17 by gabriel           #+#    #+#             */
-/*   Updated: 2024/08/31 19:09:37 by gabriel          ###   ########.fr       */
+/*   Updated: 2024/09/05 20:15:16 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,12 @@
 # include "color.h"
 # include "libft.h"
 # include "point.h"
+# include "map.h"
 
 typedef struct s_config
 {
-	char			**map;
+//	char			**map;
+	t_map			map;
 	t_list			*map_lines;
 	char			*north_texture;
 	char			*south_texture;

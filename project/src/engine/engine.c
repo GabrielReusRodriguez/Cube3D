@@ -6,7 +6,7 @@
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 19:33:19 by gabriel           #+#    #+#             */
-/*   Updated: 2024/08/31 20:14:51 by gabriel          ###   ########.fr       */
+/*   Updated: 2024/09/05 20:13:58 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ bool	engine_init(t_engine *engine, t_config *cfg)
 	engine->textures[TEXTURE_SOUTH].mlx_image = NULL;
 	engine->textures[TEXTURE_WEST].mlx_image = NULL;
 	engine->textures[TEXTURE_EAST].mlx_image = NULL;
-	engine->map.tiles = NULL;
+	engine->map.map = NULL;
 	engine->screen.title = NULL;
 	//camera_init();
 	return (true);

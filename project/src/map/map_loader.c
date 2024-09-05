@@ -6,7 +6,7 @@
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 21:29:18 by gabriel           #+#    #+#             */
-/*   Updated: 2024/08/24 20:00:02 by gabriel          ###   ########.fr       */
+/*   Updated: 2024/09/05 18:50:02 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 #include "ft_get_next_line.h"
 #include "libft.h"
 
+/*
 static bool	map_get_size(t_map *map, const char *filename)
 {
 	int		fd;
@@ -83,3 +84,4 @@ bool	map_load(t_map *map, const char *filename)
 		return (false);	
 	return (true);	
 }
+*/

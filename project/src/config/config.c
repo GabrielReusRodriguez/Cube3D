@@ -6,7 +6,7 @@
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/24 21:08:30 by gabriel           #+#    #+#             */
-/*   Updated: 2024/08/31 19:12:08 by gabriel          ###   ########.fr       */
+/*   Updated: 2024/09/05 20:18:07 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 
 static	void	config_init_vars(t_config *config)
 {
-	config->map = NULL;
+	config->map.map = NULL;
 	config->map_lines = NULL;
 	config->north_texture = NULL;
 	config->south_texture = NULL;
@@ -63,9 +63,9 @@ bool	config_init(t_config *cfg, const char *filename)
 	if (!config_load(cfg, fd))
 		return (close (fd), false);
 	close (fd);
-	if (!config_map_list_2_ptr(cfg))
-		return (false);
-	ft_lstclear(&cfg->map_lines, free);
+//	if (!config_map_list_2_ptr(cfg))
+//		return (false);
+//	ft_lstclear(&cfg->map_lines, free);
 	return (true);
 }
 
@@ -93,7 +93,7 @@ static void	config_file_destroy_map(t_config_file *cfg)
 
 void	config_destroy(t_config *cfg)
 {
-	ft_ptr_free_double_ptr(cfg->map);
+	ft_ptr_free_double_ptr(cfg->map.map);
 //	config_file_destroy_map(cfg);
 	if (cfg->map_lines != NULL)
 		ft_lstclear(&cfg->map_lines, free);
@@ -153,9 +153,9 @@ void	config_debug(t_config cfg)
 	printf("\t MAP LIST ***\n");
 	printf("\t MAP PTR ***\n");
 	i = 0;
-	while (cfg.map[i] != NULL)
+	while (cfg.map.map[i] != NULL)
 	{
-		printf("\t\t%s", cfg.map[i]);
+		printf("\t\t%s", cfg.map.map[i]);
 		i++;
 	}
 	printf("\n");

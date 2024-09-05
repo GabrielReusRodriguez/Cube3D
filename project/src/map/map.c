@@ -6,37 +6,28 @@
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 22:14:40 by gabriel           #+#    #+#             */
-/*   Updated: 2024/08/24 20:40:54 by gabriel          ###   ########.fr       */
+/*   Updated: 2024/09/05 20:04:08 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "map.h"
 
-t_tile_type map_determine_tile_type(char tile)
-{
-	if (tile == '0')
-		return (TILE_EMPTY);
-	if (tile == '1')
-		return (TILE_WALL);
-	return (TILE_UNKNOWN);
-}
-
 void	map_destroy(t_map *map)
 {
 	size_t	i;
 
 	i = 0;
-	if (map->tiles != NULL)
+	if (map->map != NULL)
 	{
 		while (i < map->height)
 		{
-			if (map->tiles[i] != NULL)
-				free (map->tiles[i]);
+			if (map->map[i] != NULL)
+				free (map->map[i]);
 			i++;
 		}
-		free (map->tiles);
-		map->tiles = NULL;
+		free (map->map);
+		map->map = NULL;
 		map->height = 0;
 		map->width = 0;
 	}

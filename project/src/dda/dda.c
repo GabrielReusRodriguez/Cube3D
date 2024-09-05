@@ -6,7 +6,7 @@
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 20:32:51 by gabriel           #+#    #+#             */
-/*   Updated: 2024/09/03 22:01:33 by gabriel          ###   ########.fr       */
+/*   Updated: 2024/09/05 18:46:07 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,10 @@ static t_dda	dda_init(t_point origin, t_vector direction)
 	dda_data.final = point_new(origin.x + direction.x * INT_MAX, origin.y + direction.y * INT_MAX);
 	dda_data.dx = dda_data.final.x - dda_data.x;
 	dda_data.dy = dda_data.final.y - dda_data.y;
-	if (abs(dda_data.dx) >= abs(dda_data.dy))
-		dda_data.step = abs(dda_data.dx);
+	if (fabs(dda_data.dx) >= fabs(dda_data.dy))
+		dda_data.step = fabs(dda_data.dx);
 	else
-		dda_data.step = abs(dda_data.dy);
+		dda_data.step = fabs(dda_data.dy);
 	dda_data.dx = dda_data.dx / dda_data.step;
 	dda_data.dy = dda_data.dy / dda_data.step;
 	return (dda_data);
@@ -47,11 +47,16 @@ static	void	dda_next_step(t_dda *dda)
 
 static	bool	dda_is_inside_map(t_point point, t_map map)
 {
-	
+
+	(void)point;
+	(void)map;
+	return (true);
 }
 
 static t_tile *dda_check_hit(t_point point, t_map map)
 {
+	(void)point;
+	(void)map;
 	return (NULL);
 }
 
