@@ -6,7 +6,7 @@
 #    By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/01 19:39:15 by gabriel           #+#    #+#              #
-#    Updated: 2024/09/05 18:46:57 by gabriel          ###   ########.fr        #
+#    Updated: 2024/09/07 20:23:53 by gabriel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -80,6 +80,7 @@ SRC				=	main								\
 					events/handler_destroy_event		\
 					error								\
 					flooding/flooding					\
+					flooding/flooding_utils				\
 					geometry/point						\
 					geometry/radiants					\
 					geometry/vector_arithmetic			\

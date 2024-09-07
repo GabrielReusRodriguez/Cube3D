@@ -1,40 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tile.h                                             :+:      :+:    :+:   */
+/*   ft_lstdel_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/16 21:32:39 by gabriel           #+#    #+#             */
-/*   Updated: 2024/09/07 18:56:25 by gabriel          ###   ########.fr       */
+/*   Created: 2024/09/07 19:24:19 by gabriel           #+#    #+#             */
+/*   Updated: 2024/09/07 19:26:23 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 
-#ifndef	TILE_H
-# define TILE_H
+#include "libft.h"
 
-# include "types.h"
-typedef enum e_tile_type
+void ft_lstdel_front(t_list **list)
 {
-	TILE_EMPTY,
-	TILE_PLAYER,
-	TILE_WALL,
-	TILE_VOID,
-	TILE_UNKNOWN
-}	t_tile_type;
+	t_list *begin;
 
-typedef struct s_tile
-{
-	size_t		x;
-	size_t		y;
-	t_tile_type	type;
-
-}	t_tile;
-
-t_tile	tile_new(size_t _x, size_t _y, char _type);
-t_tile_type tile_determine_type(char tile);
-bool	tile_copy_ptr(t_tile *origin, t_tile **destinty);
-
-
-#endif
+	if (*list == NULL)
+		return ;
+	begin = (*list)->next;
+	ft_lstdelone(*list, free);
+	*list = begin;
+}

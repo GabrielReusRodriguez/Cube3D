@@ -6,7 +6,7 @@
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/24 21:08:30 by gabriel           #+#    #+#             */
-/*   Updated: 2024/09/05 20:18:07 by gabriel          ###   ########.fr       */
+/*   Updated: 2024/09/07 20:37:53 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,9 +63,9 @@ bool	config_init(t_config *cfg, const char *filename)
 	if (!config_load(cfg, fd))
 		return (close (fd), false);
 	close (fd);
-//	if (!config_map_list_2_ptr(cfg))
-//		return (false);
-//	ft_lstclear(&cfg->map_lines, free);
+	if (!config_map_list_2_ptr(cfg))
+		return (false);
+	ft_lstclear(&cfg->map_lines, free);
 	return (true);
 }
 
@@ -153,6 +153,8 @@ void	config_debug(t_config cfg)
 	printf("\t MAP LIST ***\n");
 	printf("\t MAP PTR ***\n");
 	i = 0;
+	(void)i;
+
 	while (cfg.map.map[i] != NULL)
 	{
 		printf("\t\t%s", cfg.map.map[i]);
