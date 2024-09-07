@@ -6,7 +6,7 @@
 #    By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/01 19:39:15 by gabriel           #+#    #+#              #
-#    Updated: 2024/09/07 20:23:53 by gabriel          ###   ########.fr        #
+#    Updated: 2024/09/07 21:24:02 by gabriel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,8 @@ SRC_DIR			=	./src
 INC_DIR			=	./include
 BUILD_DIR		=	./build
 LIBFT_DIR		=	./libft
-MINILIBX_DIR	=	./mlx
+#MINILIBX_DIR	=	./mlx
+MINILIBX_DIR	=	./mlx42
 GNL_DIR			=	./gnl
 
 ################################################################################
@@ -141,7 +142,9 @@ compile:
 	@echo "${CYAN}Making get_next_line...${RST}"
 	@make --no-print-directory -C ${GNL_DIR}
 	@echo "${CYAN}Making minilibx...${RST}"
-	@make --no-print-directory -C ${MINILIBX_DIR}
+#	@make --no-print-directory -C ${MINILIBX_DIR}
+	cmake  -S ${MINILIBX_DIR} -B ${MINILIBX_DIR}/build
+	cmake --build ${MINILIBX_DIR}/build -j4
 	@echo "${CYAN}Making ${NAME}...${RST}"
 	@make --no-print-directory ${NAME}
 
@@ -158,7 +161,7 @@ ${BUILD_DIR}:
 ${BUILD_DIR}/%.o	:	${SRC_DIR}/%.c Makefile
 	@echo "\t${YELLOW}Compiling ${NAME} ->${RST} $<"
 #	@mkdir -p ${BUILD_DIR}
-	@${CC} ${CFLAGS} -I${INC_DIR} -I${MINILIBX_DIR} -I${LIBFT_DIR}/include -I${GNL_DIR}/include ${DEBUG_FLAG} -c $< -o $@ 
+	@${CC} ${CFLAGS} -I${INC_DIR} -I${MINILIBX_DIR}/include/MLX42 -I${LIBFT_DIR}/include -I${GNL_DIR}/include ${DEBUG_FLAG} -c $< -o $@ 
 
 clean			:
 	@make --no-print-directory clean -C ${LIBFT_DIR}

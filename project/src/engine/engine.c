@@ -6,7 +6,7 @@
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 19:33:19 by gabriel           #+#    #+#             */
-/*   Updated: 2024/09/05 20:13:58 by gabriel          ###   ########.fr       */
+/*   Updated: 2024/09/07 21:24:44 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,12 @@
 
 #include "engine.h"
 #include "events.h"
-#include "mlx.h"
+//#include "mlx.h"
+#include "MLX42.h"
 #include "libft.h"
 #include "error.h"
 
-#include <X11/X.h>
+//#include <X11/X.h>
 
 bool	engine_init(t_engine *engine, t_config *cfg)
 {
