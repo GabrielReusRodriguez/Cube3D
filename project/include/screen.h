@@ -6,7 +6,7 @@
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 21:28:17 by gabriel           #+#    #+#             */
-/*   Updated: 2024/08/30 22:24:36 by gabriel          ###   ########.fr       */
+/*   Updated: 2024/09/07 21:30:37 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct s_screen
 	size_t	y;
 	size_t	middle_y;
 	char	*title;
+	bool	resize;
 
 }	t_screen;
 

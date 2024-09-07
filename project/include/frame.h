@@ -6,7 +6,7 @@
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/30 20:56:48 by gabriel           #+#    #+#             */
-/*   Updated: 2024/08/30 22:39:31 by gabriel          ###   ########.fr       */
+/*   Updated: 2024/09/07 21:44:27 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ typedef struct s_frame
 	int 	pixel_bits;
 	int 	line_bytes;
 	int 	endian;
-	void	*image;
+//	void	*image;
+	mlx_image_t	*image;
 	char	*buffer;
 
 }	t_frame;

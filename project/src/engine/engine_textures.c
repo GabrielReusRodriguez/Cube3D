@@ -6,7 +6,7 @@
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 22:12:40 by gabriel           #+#    #+#             */
-/*   Updated: 2024/08/31 20:14:30 by gabriel          ###   ########.fr       */
+/*   Updated: 2024/09/07 21:44:49 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 #include "texture.h"
 #include "engine.h"
-#include "mlx.h"
+//#include "mlx.h"
+#include "MLX42.h"
 #include "libft.h"
 #include "error.h"
 

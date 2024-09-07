@@ -6,7 +6,7 @@
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 19:43:09 by gabriel           #+#    #+#             */
-/*   Updated: 2024/08/28 20:46:33 by gabriel          ###   ########.fr       */
+/*   Updated: 2024/09/07 21:31:14 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ bool	screen_init(t_screen *screen)
 	screen->title = ft_strdup(SCREEN_DEFAULT_TITLE);
 	if (screen->title == NULL)
 		return (false);
+	screen->resize = true;
 	return (true);
 }
 

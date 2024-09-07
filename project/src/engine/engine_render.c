@@ -6,7 +6,7 @@
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 22:20:03 by gabriel           #+#    #+#             */
-/*   Updated: 2024/08/31 19:42:23 by gabriel          ###   ########.fr       */
+/*   Updated: 2024/09/07 21:44:01 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 
 #include "engine.h"
 #include "error.h"
-#include "mlx.h"
+//#include "mlx.h"
+#include "MLX42.h"
 #include "frame.h"
 
 
@@ -47,13 +48,13 @@ static void	engine_render_background(t_engine *engine, t_frame *frame)
 static bool	engine_render_create_frame(t_engine *engine, t_frame *frame)
 {
 	engine_render_background(engine, frame);
-	mlx_put_image_to_window(engine->mlx, engine->mlx_win, frame->image, 0, 0);
-	//engine->mlx_image = frame->image;
+	//mlx_put_image_to_window(engine->mlx, engine->mlx_win, frame->image, 0, 0);
+	mlx_image_to_window(engine->mlx, frame->image, 0, 0);
 	return (true);
 }
 
 //https://gontjarow.github.io/MiniLibX/mlx-tutorial-create-image.html
-int	engine_render(void *param)
+void	engine_render(void *param)
 {
 	t_engine	*engine;
 	t_frame		frame;
@@ -72,7 +73,6 @@ int	engine_render(void *param)
 		exit(EXIT_FAILURE);
 	}
 	frame_destroy(engine, &frame);
-	return (0);
 }	
 	
 /*
