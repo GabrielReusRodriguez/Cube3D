@@ -6,7 +6,7 @@
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 22:20:03 by gabriel           #+#    #+#             */
-/*   Updated: 2024/09/07 21:44:01 by gabriel          ###   ########.fr       */
+/*   Updated: 2024/09/08 02:33:32 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,41 +15,37 @@
 
 #include "engine.h"
 #include "error.h"
-//#include "mlx.h"
-#include "MLX42.h"
-#include "frame.h"
+#include "MLX42/MLX42.h"
 
 
-static void	engine_render_background(t_engine *engine, t_frame *frame)
+static void	engine_render_background(t_engine *engine)
 {
 	size_t	i;
 	size_t	j;
 	t_color	color;
-	t_point	pixel;
+	uint32_t	rgbacolor;
 
 	i = 0;
-	while (i < SCREEN_DEFAULT_WIDTH)
+	while (i < engine->img->width)
 	{
 		j = 0;
-		while(j < SCREEN_DEFAULT_HEIGH)
+		while(j < engine->img->height)
 		{
-			pixel = point_new(i,j);
 			if (j < engine->screen.middle_y)
 				color =  engine->cfg->ceiling_color;
 			else
 				color = engine->cfg->floor_color;
-			frame_set_pixel(frame, color, pixel);
+			rgbacolor = color_2_mlx(color);
+			mlx_put_pixel(engine->img, i,j,rgbacolor);
 			j++;
 		}
 		i++;
 	}
 }
 
-static bool	engine_render_create_frame(t_engine *engine, t_frame *frame)
+static bool	engine_render_create_frame(t_engine *engine)
 {
-	engine_render_background(engine, frame);
-	//mlx_put_image_to_window(engine->mlx, engine->mlx_win, frame->image, 0, 0);
-	mlx_image_to_window(engine->mlx, frame->image, 0, 0);
+	engine_render_background(engine);
 	return (true);
 }
 
@@ -57,29 +53,12 @@ static bool	engine_render_create_frame(t_engine *engine, t_frame *frame)
 void	engine_render(void *param)
 {
 	t_engine	*engine;
-	t_frame		frame;
 
 	engine = (t_engine *)param;
-	if (!frame_init(engine, &frame))
+	if (!engine_render_create_frame(engine))
 	{
-		frame_destroy(engine, &frame);
 		engine_destroy(engine);
 		exit(EXIT_FAILURE);
 	}
-	if (!engine_render_create_frame(engine, &frame))
-	{
-		frame_destroy(engine, &frame);
-		engine_destroy(engine);
-		exit(EXIT_FAILURE);
-	}
-	frame_destroy(engine, &frame);
 }	
-	
-/*
-	image = mlx_new_image(engine->mlx, SCREEN_DEFAULT_WIDTH, SCREEN_DEFAULT_HEIGH);
-	buffer = mlx_get_data_addr(image, &pixel_bits, &line_bytes, &endian);
-	(void)buffer;
-	mlx_put_image_to_window(engine->mlx, engine->mlx_win, image, 0, 0);
-	mlx_destroy_image(engine->mlx, image);
-	free (image);
-*/
+

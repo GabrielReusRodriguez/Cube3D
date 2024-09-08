@@ -6,7 +6,7 @@
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/24 20:58:02 by gabriel           #+#    #+#             */
-/*   Updated: 2024/08/30 21:37:01 by gabriel          ###   ########.fr       */
+/*   Updated: 2024/09/08 02:32:33 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,39 +23,10 @@ t_color	color_new(unsigned char _r, unsigned char _g, unsigned char _b, unsigned
 	return (color);
 }
 
-char	color_2_pixel(t_color color, t_engine *engine)
+uint32_t	color_2_mlx(t_color tcolor)
 {
-	/*
-	int color = 0xABCDEF;
+	uint32_t	color;
 
-	if (pixel_bits != 32)
-    	color = mlx_get_color_value(mlx, color);
-
-	for(int y = 0; y < 360; ++y)
-		for(int x = 0; x < 640; ++x)
-		{
-    		int pixel = (y * line_bytes) + (x * 4);
-
-			if (endian == 1)        // Most significant (Alpha) byte first
-    		{
-        		buffer[pixel + 0] = (color >> 24);
-        		buffer[pixel + 1] = (color >> 16) & 0xFF;
-        		buffer[pixel + 2] = (color >> 8) & 0xFF;
-				buffer[pixel + 3] = (color) & 0xFF;
-    		}
-			else if (endian == 0)   // Least significant (Blue) byte first
-    		{
-				buffer[pixel + 0] = (color) & 0xFF;
-				buffer[pixel + 1] = (color >> 8) & 0xFF;
-				buffer[pixel + 2] = (color >> 16) & 0xFF;
-				buffer[pixel + 3] = (color >> 24);
-			}
-	}
-	*/
-	char	mlx_color;
-
-	(void)color;
-	(void)engine;
-	mlx_color = 'A';
-	return (mlx_color);
+	color = (tcolor.r << 24 | tcolor.g << 16 | tcolor.b << 8 | tcolor.a);
+	return (color);
 }

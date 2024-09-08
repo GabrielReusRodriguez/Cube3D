@@ -6,7 +6,7 @@
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 22:12:40 by gabriel           #+#    #+#             */
-/*   Updated: 2024/09/07 21:44:49 by gabriel          ###   ########.fr       */
+/*   Updated: 2024/09/07 22:46:35 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "texture.h"
 #include "engine.h"
 //#include "mlx.h"
-#include "MLX42.h"
+#include "MLX42/MLX42.h"
 #include "libft.h"
 #include "error.h"
 
@@ -23,7 +23,7 @@
 bool	engine_texture_load(const char *filename, t_texture *texture, t_engine engine)
 {
 	char	*line;
-	
+/*	
 	texture->mlx_image = mlx_xpm_file_to_image(engine.mlx, (char *)filename, \
 		&texture->width, &texture->height);
 	if (texture->mlx_image == NULL)
@@ -35,6 +35,11 @@ bool	engine_texture_load(const char *filename, t_texture *texture, t_engine engi
 		free(line);
 		return (false);
 	}
+*/
+	(void)line;
+	(void)filename;
+	(void)texture;
+	(void)engine;
 	return (true);
 }
 
@@ -56,8 +61,12 @@ bool	engine_textures_load(t_engine *engine)
 
 static void	engine_texture_destroy(t_engine *engine, t_texture *texture)
 {
+	/*
 	mlx_destroy_image(engine->mlx, texture->mlx_image);
 	texture->mlx_image = NULL;
+	*/
+	(void)engine;
+	(void)texture;
 }
 
 void	engine_textures_destroy(t_engine *engine)

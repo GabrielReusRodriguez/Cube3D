@@ -6,7 +6,7 @@
 #    By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/01 19:39:15 by gabriel           #+#    #+#              #
-#    Updated: 2024/09/07 21:24:02 by gabriel          ###   ########.fr        #
+#    Updated: 2024/09/08 02:09:29 by gabriel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,8 +49,8 @@ DEBUG_FLAG		=	-D DEBUG_FLAG=0
 DEP_FLAGS		=	-MMD -MP
 CFLAGS			+=	${DEP_FLAGS}
 #LIBS			=	-lm -lft -lgnl -lmlx_Linux
-LIBS			=	-lm -lgnl -lft -lmlx_Linux
-LIBS_FOLDERS	=	-L${LIBFT_DIR} -L${MINILIBX_DIR} -L${GNL_DIR}
+LIBS			=	-lm -lgnl -lft -lmlx42
+LIBS_FOLDERS	=	-L${LIBFT_DIR} -L${MINILIBX_DIR}/build -L${GNL_DIR}
 
 ################################################################################
 # Name of exec
@@ -76,7 +76,6 @@ SRC				=	main								\
 					engine/engine2						\
 					engine/engine_render				\
 					engine/engine_textures				\
-					engine/frame						\
 					events/handler_key_events			\
 					events/handler_destroy_event		\
 					error								\
@@ -101,7 +100,6 @@ HEADERS			=	camera.h		\
 					error.h			\
 					events.h		\
 					flooding.h		\
-					frame.h			\
 					map.h			\
 					mlx_image.h		\
 					player.h		\
@@ -131,9 +129,10 @@ DEPS			=	$(addprefix ${BUILD_DIR}/, $(addsuffix .d, ${SRC}))
 
 all				:	${BUILD_DIR} compile
 
-${NAME}			:	${OBJS} ${LIBFT_DIR}/libft.a ${GNL_DIR}/libgnl.a ${MINILIBX_DIR}/libmlx_Linux.a Makefile
+${NAME}			:	${OBJS} ${LIBFT_DIR}/libft.a ${GNL_DIR}/libgnl.a ${MINILIBX_DIR}/build/libmlx42.a Makefile
 	@echo "${CYAN}Linking all together${RST}"
-	${CC} ${CFLAGS} ${SANITIZE_FLAGS} -o ${NAME} ${OBJS} -L/usr/lib -L/usr/local/lib ${LIBS_FOLDERS} ${LIBS} -lXext -lX11 -lz  
+#	${CC} ${CFLAGS} ${SANITIZE_FLAGS} -o ${NAME} ${OBJS} -L/usr/lib -L/usr/local/lib ${LIBS_FOLDERS} ${LIBS} -lXext -lX11 -lz
+	${CC} ${CFLAGS} ${SANITIZE_FLAGS} -o ${NAME} ${OBJS} -L/usr/lib -L/usr/local/lib ${LIBS_FOLDERS} ${LIBS} -ldl -lglfw -pthread
 	@echo "$(GREEN)Binary $(NAME) compiled! $(RST)"
 
 compile:
@@ -161,7 +160,7 @@ ${BUILD_DIR}:
 ${BUILD_DIR}/%.o	:	${SRC_DIR}/%.c Makefile
 	@echo "\t${YELLOW}Compiling ${NAME} ->${RST} $<"
 #	@mkdir -p ${BUILD_DIR}
-	@${CC} ${CFLAGS} -I${INC_DIR} -I${MINILIBX_DIR}/include/MLX42 -I${LIBFT_DIR}/include -I${GNL_DIR}/include ${DEBUG_FLAG} -c $< -o $@ 
+	@${CC} ${CFLAGS} -I${INC_DIR} -I${MINILIBX_DIR}/include -I${LIBFT_DIR}/include -I${GNL_DIR}/include ${DEBUG_FLAG} -c $< -o $@ 
 
 clean			:
 	@make --no-print-directory clean -C ${LIBFT_DIR}

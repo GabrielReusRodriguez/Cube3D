@@ -6,7 +6,7 @@
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 18:43:45 by gabriel           #+#    #+#             */
-/*   Updated: 2024/09/07 21:41:57 by gabriel          ###   ########.fr       */
+/*   Updated: 2024/09/08 00:38:59 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include "map.h"
 # include "texture.h"
 # include "config.h"
-# include "MLX42.h"
+# include "MLX42/MLX42.h"
 
 enum e_engine_events
 {
@@ -49,6 +49,8 @@ typedef	struct s_engine
 	t_screen	screen;
 	t_texture	textures[4];
 
+	mlx_image_t	*img;
+	
 }	t_engine;
 
 bool	engine_init(t_engine *engine, t_config *cfg);
