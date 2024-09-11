@@ -6,7 +6,7 @@
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 21:05:06 by gabriel           #+#    #+#             */
-/*   Updated: 2024/09/07 23:02:41 by gabriel          ###   ########.fr       */
+/*   Updated: 2024/09/11 19:38:50 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,7 @@ void	on_keydown(mlx_key_data_t keydata, void *param)
 	(void)engine;
 	printf("Key pressed %d\n", keydata.key);
 	if (keydata.key == MLX_KEY_ESCAPE)
-	{
-		engine_destroy(engine);
-		exit(EXIT_SUCCESS);
-	}
+		engine_stop(engine);
 }
 /*
 int	on_keydown(int key_code, void *param)

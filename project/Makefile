@@ -6,7 +6,7 @@
 #    By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/01 19:39:15 by gabriel           #+#    #+#              #
-#    Updated: 2024/09/08 02:09:29 by gabriel          ###   ########.fr        #
+#    Updated: 2024/09/11 19:29:47 by gabriel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,34 +62,43 @@ NAME	=	cube3d
 # Files
 ################################################################################
 
-SRC				=	main								\
-					camera								\
-					color								\
-					config/config_header_parser			\
-					config/config_loader				\
-					config/config_map_parser			\
-					config/config_validator_map			\
-					config/config_validator				\
-					config/config						\
-					dda/dda								\
-					engine/engine						\
-					engine/engine2						\
-					engine/engine_render				\
-					engine/engine_textures				\
-					events/handler_key_events			\
-					events/handler_destroy_event		\
-					error								\
-					flooding/flooding					\
-					flooding/flooding_utils				\
-					geometry/point						\
-					geometry/radiants					\
-					geometry/vector_arithmetic			\
-					geometry/vector						\
-					map/map								\
-					map/map_loader						\
-					map/map_parser						\
-					map/tile							\
-					screen								
+SRC		=	main.c							\
+			camera.c						\
+			color.c							\
+			error.c							\
+			screen.c
+
+SRC		+=	config/config_header_parser.c		\
+			config/config_loader.c				\
+			config/config_map_parser.c			\
+			config/config_validator_map.c		\
+			config/config_validator.c			\
+			config/config.c
+
+SRC		+=	dda/dda.c							\
+
+SRC		+=	engine/engine.c						\
+			engine/engine_mlx_config.c			\
+			engine/engine_render.c				\
+			engine/engine_textures.c
+
+SRC		+=	events/handler_key_events.c			\
+			events/handler_destroy_event.c		\
+			events/handler_resize_event.c
+
+SRC		+=	flooding/flooding.c					\
+			flooding/flooding_utils.c			\
+
+SRC		+=	geometry/point.c					\
+			geometry/radiants.c					\
+			geometry/vector_arithmetic.c		\
+			geometry/vector.c
+
+SRC		+=	map/map.c							\
+			map/map_loader.c					\
+			map/map_parser.c					\
+			map/tile.c
+
 
 HEADERS			=	camera.h		\
 					color.h			\
@@ -111,10 +120,15 @@ HEADERS			=	camera.h		\
 					types.h			\
 					vector.h
 
-SRCS			=	$(addprefix ${SRC_DIR}/, $(addsuffix .c, ${SRC}))
-OBJS			=	$(addprefix ${BUILD_DIR}/, $(addsuffix .o, ${SRC}))
+SRCS			=	$(addprefix ${SRC_DIR}/, ${SRC})
+OBJS			=	$(patsubst %.c, ${BUILD_DIR}/%.o, ${SRC})
+DEPS			=	$(patsubst %.c, ${BUILD_DIR}/%.d, ${SRC})
 HDRS			=	$(addprefix ${INC_DIR}/, ${HEADERS})
-DEPS			=	$(addprefix ${BUILD_DIR}/, $(addsuffix .d, ${SRC}))
+
+#SRCS			=	$(addprefix ${SRC_DIR}/, $(addsuffix .c, ${SRC}))
+#OBJS			=	$(patsubst %.c)$(addprefix ${BUILD_DIR}/, $(addsuffix .o, ${SRC}))
+#HDRS			=	$(addprefix ${INC_DIR}/, ${HEADERS})
+#DEPS			=	$(addprefix ${BUILD_DIR}/, $(addsuffix .d, ${SRC}))
 
 ################################################################################
 # Rules 
@@ -165,7 +179,7 @@ ${BUILD_DIR}/%.o	:	${SRC_DIR}/%.c Makefile
 clean			:
 	@make --no-print-directory clean -C ${LIBFT_DIR}
 	@make --no-print-directory clean -C ${GNL_DIR}
-	@make --no-print-directory clean -C ${MINILIBX_DIR}
+#	@make --no-print-directory clean -C ${MINILIBX_DIR}
 	@echo "${RED}Cleaning build folder${RST}"
 	@rm -rf ${BUILD_DIR}
 

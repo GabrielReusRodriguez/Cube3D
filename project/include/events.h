@@ -6,7 +6,7 @@
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 21:59:42 by gabriel           #+#    #+#             */
-/*   Updated: 2024/09/07 22:42:54 by gabriel          ###   ########.fr       */
+/*   Updated: 2024/09/11 19:02:16 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,6 @@
 
 void	on_keydown(mlx_key_data_t keydata, void *param);
 void	on_destroy(void *param);
+void	on_resize(int width, int height, void *param);
 
-/*
-int	on_keydown(int key_code, void *param);
-int	on_destroy(void *param);
-*/
 #endif

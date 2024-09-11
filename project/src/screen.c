@@ -6,7 +6,7 @@
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 19:43:09 by gabriel           #+#    #+#             */
-/*   Updated: 2024/09/07 21:31:14 by gabriel          ###   ########.fr       */
+/*   Updated: 2024/09/11 00:01:48 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 #include "libft.h"
 #include "screen.h"
+//#include "MLX42/MLX42.h"
 
 bool	screen_init(t_screen *screen)
 {

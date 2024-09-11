@@ -6,7 +6,7 @@
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/01 19:53:01 by gabriel           #+#    #+#             */
-/*   Updated: 2024/09/07 20:31:17 by gabriel          ###   ########.fr       */
+/*   Updated: 2024/09/11 19:08:28 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ int	main(int argc, char **argv)
 	if (!engine_start(&engine))
 		return (engine_destroy(&engine), EXIT_FAILURE);
 	engine_loop(&engine);
+	engine_destroy(&engine);
 	return (EXIT_SUCCESS);
 }
 

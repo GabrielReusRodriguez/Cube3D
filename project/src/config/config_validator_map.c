@@ -6,11 +6,12 @@
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 21:49:35 by gabriel           #+#    #+#             */
-/*   Updated: 2024/09/05 20:17:06 by gabriel          ###   ########.fr       */
+/*   Updated: 2024/09/11 20:12:10 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "config.h"
+#include "error.h"
 
 static	t_orientations	config_map_resolve_orientation(char orientation)
 {
@@ -51,8 +52,17 @@ bool	config_map_find_player(t_config *cfg)
 	return (false);
 }
 
-bool config_validate_map(t_config *cfg)
+static bool	config_map_is_closed(t_config *cfg)
 {
 	(void)cfg;
+	return (true);
+}
+
+bool config_validate_map(t_config *cfg)
+{
+	if (!config_map_find_player(cfg))
+		return(error_print_critical("Cannot find player at map."), false);
+	if (!config_map_is_closed(cfg))
+		return(error_print_critical("The map is NOT closed."), false);
 	return (true);
 }

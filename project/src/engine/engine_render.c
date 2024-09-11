@@ -6,7 +6,7 @@
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 22:20:03 by gabriel           #+#    #+#             */
-/*   Updated: 2024/09/08 02:33:32 by gabriel          ###   ########.fr       */
+/*   Updated: 2024/09/11 20:02:05 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,9 @@ void	engine_render(void *param)
 	engine = (t_engine *)param;
 	if (!engine_render_create_frame(engine))
 	{
-		engine_destroy(engine);
-		exit(EXIT_FAILURE);
+		engine_stop(engine);
+		//engine_destroy(engine);
+		//exit(EXIT_FAILURE);
 	}
 }	
 

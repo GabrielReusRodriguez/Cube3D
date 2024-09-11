@@ -6,7 +6,7 @@
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 22:12:40 by gabriel           #+#    #+#             */
-/*   Updated: 2024/09/07 22:46:35 by gabriel          ###   ########.fr       */
+/*   Updated: 2024/09/11 19:55:50 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,11 @@ bool	engine_texture_load(const char *filename, t_texture *texture, t_engine engi
 		return (false);
 	}
 */
+
 	(void)line;
 	(void)filename;
 	(void)texture;
-	(void)engine;
+	(void)engine;	
 	return (true);
 }
 

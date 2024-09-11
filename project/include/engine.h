@@ -6,7 +6,7 @@
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 18:43:45 by gabriel           #+#    #+#             */
-/*   Updated: 2024/09/08 00:38:59 by gabriel          ###   ########.fr       */
+/*   Updated: 2024/09/11 19:19:36 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,15 +55,21 @@ typedef	struct s_engine
 
 bool	engine_init(t_engine *engine, t_config *cfg);
 bool	engine_start(t_engine *engine);
+void	engine_stop(t_engine *engine);
 void	engine_loop(t_engine *engine);
 void	engine_destroy(t_engine *engine);
-bool	engine_clear_window(t_engine *engine);
-bool	engine_get_screen_size(t_engine *engine);
+//bool	engine_clear_window(t_engine *engine);
+//bool	engine_get_screen_size(t_engine *engine);
 void	engine_render(void *param);
 
 //engine/engine_texture.c
 bool	engine_texture_load(const char *filename, t_texture *texture, t_engine engine);
 bool	engine_textures_load(t_engine *engine);
 void	engine_textures_destroy(t_engine *engine);
+
+//engine/engine_config.c
+void	engine_mlx_settings(void);
+void	engine_mlx_hooks(t_engine *engine);
+
 
 #endif
