@@ -6,7 +6,7 @@
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/24 20:53:17 by gabriel           #+#    #+#             */
-/*   Updated: 2024/09/05 20:15:16 by gabriel          ###   ########.fr       */
+/*   Updated: 2024/09/12 18:59:42 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ typedef struct s_config
 	t_color			ceiling_color;
 	t_point			player_position;
 	t_orientations	player_orientation;
-
+	bool			valid_cfg;
 	
 }	t_config;
 

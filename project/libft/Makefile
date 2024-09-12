@@ -6,7 +6,7 @@
 #    By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/04 01:34:53 by greus-ro          #+#    #+#              #
-#    Updated: 2024/09/07 19:35:09 by gabriel          ###   ########.fr        #
+#    Updated: 2024/09/12 20:48:01 by gabriel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -102,6 +102,7 @@ SRC			=	ft_atoi				\
 				ft_lstadd_front_bonus	\
 				ft_lstadd_back_bonus	\
 				ft_lstclear_bonus		\
+				ft_lstcontains			\
 				ft_lstdelone_bonus		\
 				ft_lstdel_back			\
 				ft_lstdel_front			\

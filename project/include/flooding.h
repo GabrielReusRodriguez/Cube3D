@@ -6,7 +6,7 @@
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 22:03:20 by gabriel           #+#    #+#             */
-/*   Updated: 2024/09/07 20:20:58 by gabriel          ###   ########.fr       */
+/*   Updated: 2024/09/12 22:02:23 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,9 @@ bool	flood_map(t_config config, bool *is_closed);
 void	flood_destroy(t_flooding *flood);
 bool	flood_init(t_config cfg, t_flooding *flood);
 bool	flood_is_tile_in_list(t_list *list, t_tile tile);
+
+// flooding_neighbours.c
+bool	flood_add_neighbours(t_config cfg, t_flooding *flood, t_tile tile);
 
 
 #endif

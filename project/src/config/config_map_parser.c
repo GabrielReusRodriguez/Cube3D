@@ -6,7 +6,7 @@
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/25 23:00:00 by gabriel           #+#    #+#             */
-/*   Updated: 2024/09/05 20:16:19 by gabriel          ###   ########.fr       */
+/*   Updated: 2024/09/12 19:35:45 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,8 +92,10 @@ bool	config_map_list_2_ptr(t_config *cfg)
 		cfg->map.map[i] = ft_strdup((char *)node->content);
 		if (cfg->map.map[i] == NULL)
 			return (error_perror_critical(), false);
+		cfg->map.width = ft_strlen(cfg->map.map[i]);
 		node = node->next;
 		i++;
 	}
+	cfg->map.height = number_lines;
 	return (true);
 }

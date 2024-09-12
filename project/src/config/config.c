@@ -6,7 +6,7 @@
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/24 21:08:30 by gabriel           #+#    #+#             */
-/*   Updated: 2024/09/07 20:37:53 by gabriel          ###   ########.fr       */
+/*   Updated: 2024/09/12 19:17:05 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ static	void	config_init_vars(t_config *config)
 	config->player_position.x = -1;
 	config->player_position.y = -1;
 	config->player_orientation = NONE;
+	config->valid_cfg = true;
 }
 
 bool	config_is_header_initialized(t_config config)
@@ -68,28 +69,6 @@ bool	config_init(t_config *cfg, const char *filename)
 	ft_lstclear(&cfg->map_lines, free);
 	return (true);
 }
-
-/*
-static void	config_file_destroy_map(t_config_file *cfg)
-{
-	char	**map;
-	size_t	i;
-
-	map = cfg->map;
-	if (map != NULL)
-	{
-		i = 0;
-		while (map[i] != NULL)
-		{
-			if (map[i] != NULL)
-				free(map[i]);
-			i++;
-		}
-		free(map);
-		cfg->map = NULL;
-	}
-}
-*/
 
 void	config_destroy(t_config *cfg)
 {

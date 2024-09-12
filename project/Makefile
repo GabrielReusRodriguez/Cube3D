@@ -6,7 +6,7 @@
 #    By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/01 19:39:15 by gabriel           #+#    #+#              #
-#    Updated: 2024/09/11 19:29:47 by gabriel          ###   ########.fr        #
+#    Updated: 2024/09/12 21:36:40 by gabriel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -87,7 +87,8 @@ SRC		+=	events/handler_key_events.c			\
 			events/handler_resize_event.c
 
 SRC		+=	flooding/flooding.c					\
-			flooding/flooding_utils.c			\
+			flooding/flooding_neighbours.c		\
+			flooding/flooding_utils.c
 
 SRC		+=	geometry/point.c					\
 			geometry/radiants.c					\

@@ -6,7 +6,7 @@
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 21:28:10 by gabriel           #+#    #+#             */
-/*   Updated: 2024/09/05 20:01:28 by gabriel          ###   ########.fr       */
+/*   Updated: 2024/09/12 20:00:08 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,14 @@
 
 # include "tile.h"
 # include "types.h"
+
+# define MAP_TILE_WALL 			'1'
+# define MAP_TILE_EMPTY			'0'
+# define MAP_TILE_PLAYER_NORTH	'N'
+# define MAP_TILE_PLAYER_SOUTH	'S'
+# define MAP_TILE_PLAYER_EAST	'E'
+# define MAP_TILE_PLAYER_WEST	'W'
+# define MAP_TILE_VOID			' '
 
 typedef struct s_map
 {
@@ -28,6 +36,7 @@ typedef struct s_map
 //map.c
 t_tile_type map_determine_tile_type(char tile);
 void	map_destroy(t_map *map);
+bool	map_cell_is_player(char tile);
 
 //map_loader.c
 bool	map_load(t_map *map, const char *filename);

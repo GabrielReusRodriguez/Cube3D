@@ -6,7 +6,7 @@
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 20:37:22 by greus-ro          #+#    #+#             */
-/*   Updated: 2024/09/07 19:23:37 by gabriel          ###   ########.fr       */
+/*   Updated: 2024/09/12 20:34:47 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,5 +90,8 @@ t_list	*ft_lstnew(void *content);
 int		ft_lstsize(t_list *lst);
 void	ft_lstdel_back(t_list **lst);
 void	ft_lstdel_front(t_list **lst);
+int		ft_lstcontains(t_list *list, void *content, int (*f)(void *c1, \
+			void *c2));
+
 
 #endif

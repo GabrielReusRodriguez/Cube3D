@@ -6,7 +6,7 @@
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 22:12:40 by gabriel           #+#    #+#             */
-/*   Updated: 2024/09/11 19:55:50 by gabriel          ###   ########.fr       */
+/*   Updated: 2024/09/12 18:49:17 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ static void	engine_texture_destroy(t_engine *engine, t_texture *texture)
 	*/
 	(void)engine;
 	(void)texture;
+	
 }
 
 void	engine_textures_destroy(t_engine *engine)

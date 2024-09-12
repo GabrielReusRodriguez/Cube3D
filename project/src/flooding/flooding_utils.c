@@ -6,7 +6,7 @@
 /*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/07 18:44:13 by gabriel           #+#    #+#             */
-/*   Updated: 2024/09/07 20:26:12 by gabriel          ###   ########.fr       */
+/*   Updated: 2024/09/12 18:58:26 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ bool	flood_init(t_config cfg, t_flooding *flood)
 
 	flood->is_open = false;
 	flood->visited = NULL;
+	flood->to_visit = NULL;
 	tile = (t_tile *)malloc(sizeof(t_tile));
 	if (tile == NULL)
 		return(error_perror_critical(), false);
